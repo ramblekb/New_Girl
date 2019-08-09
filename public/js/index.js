@@ -5,7 +5,7 @@ var data = {
   date: $("#date-id").val(),
   day: $("#day-id").val()
 
-}
+};
 // The API object contains methods for each kind of request we'll make
 var API = {
 
@@ -19,7 +19,7 @@ var API = {
         type: "POST",
         url: "api/teach/" + id,
         data: JSON.stringify(data),
-        // success: location.reload()
+        success: location.reload()
       });
     } else if (personsType == "student") {
 
@@ -30,7 +30,7 @@ var API = {
         type: "POST",
         url: "api/student/" + id,
         data: JSON.stringify(example),
-        // success: location.reload()
+        success: location.reload()
       });
     }
   },
@@ -38,13 +38,17 @@ var API = {
     if (personsType == "student") {
       return $.ajax({
         url: "api/student",
-        type: "GET"
+        type: "GET",
+        success: location.reload()
+
       });
     }
     else if (personsType == "teacher") {
       return $.ajax({
         url: "api/teach",
-        type: "GET"
+        type: "GET",
+        success: location.reload()
+
       });
     };
   },
@@ -52,13 +56,17 @@ var API = {
     if (personsType == "student") {
       return $.ajax({
         url: "api/student/" + eventId,
-        type: "DELETE"
+        type: "DELETE",
+        success: location.reload()
+
       });
     }
     else if (personsType == "teacher") {
       return $.ajax({
         url: "api/teach/" + eventId,
-        type: "DELETE"
+        type: "DELETE",
+        success: location.reload()
+
       });
     }
   },
@@ -66,13 +74,17 @@ var API = {
     if (personsType == "student") {
       return $.ajax({
         url: "api/teach/" + id + "/" + eventId,
-        type: "PUT"
-      })
+        type: "PUT",
+        success: location.reload()
+
+      });
     }
     else if (personsType == "teacher") {
       return $.ajax({
         url: "api/student/" + id + "/" + eventId,
-      })
+        type: "PUT",
+        success: location.reload()
+      });
     }
   }
 };
@@ -81,16 +93,16 @@ var API = {
 
 
 // Add event listeners for buttons
-$(".deleteEventBtn").click(function(eventid, personsType){
-    API.deleteEvent(eventId , id);
+$(".deleteEventBtn").click(function (eventid, personsType) {
+  API.deleteEvent(eventId, id);
 });
-$(".updateEventBtn").click(function(){
+$(".updateEventBtn").click(function () {
   API.updateEvent(id, eventId, personsType);
 });
 
-$(".getEventsBtn").click(function(){
+$(".getEventsBtn").click(function () {
   API.getInfo(personsType);
 });
-$(".addEventBtn").click(function(){
+$(".addEventBtn").click(function () {
   API.addEvent(data, personsType, id)
 })
