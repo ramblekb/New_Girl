@@ -1,14 +1,15 @@
 var data = {
   // Get references to page elements
-  description: $("#example-text"),
-  month: $("#example-description"),
-  date: $("#submit"),
-  day: $("#example-list")
+  description: $("#description-id").val(),
+  month: $("#month-id").val(),
+  date: $("#date-id").val(),
+  day: $("#day-id").val()
 
 }
 // The API object contains methods for each kind of request we'll make
 var API = {
-  addEvent: function (data, personsType) {
+
+  addEvent: function (data, personsType, id) {
 
     if (personsType == "teacher") {
       return $.ajax({
@@ -16,9 +17,9 @@ var API = {
           "Content-Type": "application/json"
         },
         type: "POST",
-        url: "api/teach",
+        url: "api/teach/" + id,
         data: JSON.stringify(data),
-        success: location.reload()
+        // success: location.reload()
       });
     } else if (personsType == "student") {
 
@@ -27,9 +28,9 @@ var API = {
           "Content-Type": "application/json"
         },
         type: "POST",
-        url: "api/student",
+        url: "api/student/" + id,
         data: JSON.stringify(example),
-        success: location.reload()
+        // success: location.reload()
       });
     }
   },
@@ -42,36 +43,54 @@ var API = {
     }
     else if (personsType == "teacher") {
       return $.ajax({
-        url: "api/teacher",
+        url: "api/teach",
         type: "GET"
       });
     };
   },
-  deleteEvent: function (id, personsType) {
+  deleteEvent: function (eventid, personsType) {
     if (personsType == "student") {
       return $.ajax({
-        url: "api/student",
+        url: "api/student/" + eventId,
         type: "DELETE"
       });
     }
     else if (personsType == "teacher") {
       return $.ajax({
-        url: "api/teacher",
+        url: "api/teach/" + eventId,
         type: "DELETE"
       });
+    }
+  },
+  updateEvent: function (id, eventId, personsType) {
+    if (personsType == "student") {
+      return $.ajax({
+        url: "api/teach/" + id + "/" + eventId,
+        type: "PUT"
+      })
+    }
+    else if (personsType == "teacher") {
+      return $.ajax({
+        url: "api/student/" + id + "/" + eventId,
+      })
     }
   }
 };
 
 
+
+
 // Add event listeners for buttons
-
-$addNewEventBtn.on("click", function () {
-  API.addEvent(data, personsType)
+$(".deleteEventBtn").click(function(eventid, personsType){
+    API.deleteEvent(eventId , id);
+});
+$(".updateEventBtn").click(function(){
+  API.updateEvent(id, eventId, personsType);
 });
 
-$getData.on("click", function () {
-  API.getInfo(personsType)
+$(".getEventsBtn").click(function(){
+  API.getInfo(personsType);
 });
-
-$deleteEvent.on("click", ".delete", handleDeleteBtnClick);
+$(".addEventBtn").click(function(){
+  API.addEvent(data, personsType, id)
+})
