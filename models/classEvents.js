@@ -1,10 +1,10 @@
-module.exports = function (sequelize, DataTypes) {
-    var Class_events = sequelize.define("Class_events", {
-        user_id: {
+module.exports = function(sequelize, DataTypes) {
+    var ClassEvents = sequelize.define("ClassEvents", {
+        userId: {
             type: INTEGER,
             equals: "1"
         },
-        day_id: {
+        dayId: {
             type: INTEGER,
             references: {
                 model: Calendar,
@@ -12,17 +12,17 @@ module.exports = function (sequelize, DataTypes) {
             },
             allowNull: false
         },
-        start_time: DataTypes.STRING,
-        end_time: DataTypes.STRING,
-        event_name: {
+        startTime: DataTypes.STRING,
+        endTime: DataTypes.STRING,
+        eventName: {
             type: STRING,
             allowNull: false
         },
-        event_description: {
+        eventDescription: {
             type: STRING,
             allowNull: false
         },
         freezeTableName: true,
     });
-    return Class_events;
+    return ClassEvents;
 };
