@@ -1,5 +1,6 @@
 var data = {
   // Get references to page elements
+  event_name: $("#event-name").val(),
   description: $("#description-id").val(),
   month: $("#month-id").val(),
   date: $("#date-id").val(),
@@ -8,7 +9,8 @@ var data = {
 };
 // The API object contains methods for each kind of request we'll make
 var API = {
-
+  //This will make a post call to the server which will take 3 params the data being sent to the the server , the usersType "teacher" or "student",
+  //and the id of the user
   addEvent: function (data, personsType, id) {
 
     if (personsType == "teacher") {
@@ -34,6 +36,7 @@ var API = {
       });
     }
   },
+  //This will get call to the server and takes one params the take the users type "teacher" or "student"
   getInfo: function (personsType) {
     if (personsType == "student") {
       return $.ajax({
@@ -52,6 +55,7 @@ var API = {
       });
     };
   },
+  //This will make a delete call to the server and and take two params the "event id" and the users type "teacher" or "student"
   deleteEvent: function (eventid, personsType) {
     if (personsType == "student") {
       return $.ajax({
@@ -70,6 +74,7 @@ var API = {
       });
     }
   },
+  //This will update an event and take 3 params the users id , the event id and the usersType "teacher" or "student"
   updateEvent: function (id, eventId, personsType) {
     if (personsType == "student") {
       return $.ajax({
@@ -93,8 +98,8 @@ var API = {
 
 
 // Add event listeners for buttons
-$(".deleteEventBtn").click(function (eventid, personsType) {
-  API.deleteEvent(eventId, id);
+$(".deleteEventBtn").click(function () {
+  API.deleteEvent(eventid, personsType);
 });
 $(".updateEventBtn").click(function () {
   API.updateEvent(id, eventId, personsType);
