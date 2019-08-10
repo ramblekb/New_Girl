@@ -11,7 +11,7 @@ html {
   background-size: cover;
 }
 .user_card {
-    height: 400px;
+    height: 445px;
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
@@ -33,7 +33,7 @@ html {
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    background: rgb(48, 255, 93);
+    background: rgb(46, 48, 46);
     padding: 10px;
     text-align: center;
 }
@@ -72,3 +72,4 @@ html {
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #28bb34 !important;
 }
+
