@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       min: 1,
       max: 31
     },
-    freezeTableName: true,
+    freezeTableName: true
   });
   return Calendar;
 };
