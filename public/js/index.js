@@ -9,9 +9,9 @@ var data = {
 // The API object contains methods for each kind of request we'll make
 var API = {
 
-  addEvent: function (data, personsType, id) {
+  addEvent: function(data, personsType, id) {
 
-    if (personsType == "teacher") {
+    if (personsType == "teacher") 
       return $.ajax({
         headers: {
           "Content-Type": "application/json"
@@ -21,7 +21,11 @@ var API = {
         data: JSON.stringify(data),
         success: location.reload()
       });
-    } else if (personsType == "student") {
+      }
+    }
+    
+    
+    if (personsType == "student") {
 
       return $.ajax({
         headers: {
@@ -31,10 +35,10 @@ var API = {
         url: "api/student/" + id,
         data: JSON.stringify(example),
         success: location.reload()
-      });
+      })
     }
-  },
-  getInfo: function (personsType) {
+  
+  getInfo: function(personsType) {
     if (personsType == "student") {
       return $.ajax({
         url: "api/student",
@@ -51,8 +55,8 @@ var API = {
 
       });
     };
-  },
-  deleteEvent: function (eventid, personsType) {
+  }
+  deleteEvent: function(eventid, personsType) {
     if (personsType == "student") {
       return $.ajax({
         url: "api/student/" + eventId,
@@ -69,7 +73,7 @@ var API = {
 
       });
     }
-  },
+  }
   updateEvent: function (id, eventId, personsType) {
     if (personsType == "student") {
       return $.ajax({
@@ -86,8 +90,7 @@ var API = {
         success: location.reload()
       });
     }
-  }
-};
+  };
 
 
 
