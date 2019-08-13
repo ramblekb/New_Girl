@@ -1,6 +1,8 @@
 /*Event.JS CSS*/ 
-body{
-    background-color: #86f18f;
+
+body, html {
+  height: 100%;
+  background-color: #C8E6C9;
 }
 .sticky-footer {
     position: -webkit-sticky;
@@ -45,7 +47,7 @@ body{
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #007a0a; /* Magenta*/
+    background-color: #00695C; /* Magenta*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -56,14 +58,14 @@ body{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #28bb34;
+    color: white;
     display: block;
     transition: 0.3s;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidebar a:hover {
-    color: #86f18f;
+    color: #B2DFDB;
   }
   
   /* Position and style the close button (top right corner) */
@@ -78,26 +80,21 @@ body{
   /* The button used to open the sidebar */
   .openbtn {
     font-size: 20px;
-    cursor: pointer;
-    background-color: #28bb34;
+    cursor: progress;
+    background-color: #00695C;
     color: white;
     padding: 10px 15px;
     border: none;
   }
   
   .openbtn:hover {
-    background-color: #28bb34;
+    background-color: #00897B;
   }
   
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s; /* If you want a transition effect */
     padding: 20px;
-  }
-  
-  .navicon {
-    background-color: #86f18f;
-
   }
   .clearfix:after {
     content: " "; /* Older browser do not support empty content */
@@ -106,12 +103,9 @@ body{
     height: 0;
     clear: both;
 }
-body, html {
-  height: 100%;
-}
 .wrapper {
-  background: url("../images/pic2.jpg");
   height: 100%;
+  background-color: #C8E6C9;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -224,7 +218,6 @@ input[type=submit]:hover {
 /* Add a background color and some padding around the form */
 .container {
   border-radius: 5px;
-  background-color: #c1fdda;
   padding: 20px;
 }
 
@@ -254,29 +247,6 @@ input[type=submit]:hover {
   position: relative;
 }
 
-.lamp {
-  float: left;
-  display: inline;
-}
-
-.bar {
-  float: left;
-  display: inline;
-}
-
-.city {
-  float: left;
-  display: inline
-}
-
-.music {
-  display: inline;
-}
-
-.nyc {
-  float: left;
-}
-
 .text-block {
   text-align: center;
   bottom: 20px;
@@ -299,4 +269,16 @@ input[type=submit]:hover {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
   .sticky-footer {bottom: 0;}
+}
+#headerCard {
+  background-color: #66BB6A;
+  font-family: 'Courier New', Courier, monospace;
+}
+#bodyCard {
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+#cardSet {
+  margin-top: 10px;
+  margin-bottom: 30px;
 }

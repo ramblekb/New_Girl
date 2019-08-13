@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <!-- CSS full calDurationar links -->
+    <link href='https://unpkg.com/@fullcalDurationar/core/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalDurationar/daygrid/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalDurationar/list/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalDurationar/timegrid/main.min.css' rel='stylesheet' />
+
+
+
+
+    <!-- JS full calDurationar links -->
+    <script type='text/javascript' src='https://unpkg.com/@fullcalDurationar/core/main.min.js'></script>
+    <script type='text/javascript' src='https://unpkg.com/@fullcalDurationar/daygrid/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalDurationar/interaction/main.min.js'></script>
+
+    <script src='https://unpkg.com/@fullcalDurationar/list/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalDurationar/timegrid/main.min.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calDurationarEl = document.getElementById('calDurationar');
+
+            var calDurationar = new FullCalDurationar.CalDurationar(calDurationarEl, {
+                plugins: ['interaction', 'dayGrid', 'timeGrid'],
+                header: {
+                    left: 'prev,next today',
+                    center: 'EventName',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                defaultDate: '2019-08-12',
+                navLinks: true,
+                selectable: true,
+                selectMirror: true,
+                select: function (arg) {
+                    var EventName = prompt('Event EventName:');
+                    if (EventName) {
+                        calDurationar.addEvent({
+                            UserID: UserID,
+                            EventName: EventName,
+                            Time: arg.Time,
+                            Duration: arg.Duration,
+                            allDay: arg.allDay
+                        })
+                    }
+                    calDurationar.unselect()
+                },
+                editable: true,
+                eventLimit: true,
+                events: 'server.js'
+            });
+
+            calDurationar.rDurationer();
+        });
+
+    </script>
+    <style>
+        body {
+            margin: 40px 10px;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #calDurationar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='calDurationar'></div>
+
+</body>
+
+</html>
