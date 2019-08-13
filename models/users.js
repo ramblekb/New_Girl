@@ -9,8 +9,8 @@ module.exports = function (sequelize, DataTypes) {
             type: STRING,
             allowNull: false
         },
-        studentRole: {
-            type: Boolean,
+        role: {
+            type: STRING,
             allowNull: false
         }
     });
