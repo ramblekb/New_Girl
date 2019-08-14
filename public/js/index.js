@@ -110,4 +110,5 @@ $(".getEventsBtn").click(function () {
 });
 $(".addEventBtn").click(function () {
   API.addEvent(data, personsType, id)
-})
+
+});
