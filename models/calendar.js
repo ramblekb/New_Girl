@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+<<<<<<< HEAD
   var Calendar = sequelize.define("Calendar", {
     dayId: DataTypes.INTEGER,
     validate: {
@@ -9,3 +10,10 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Calendar;
 };
+=======
+    var Calendar = sequelize.define("Calendar", {
+      Day: DataTypes.INTEGER
+    });
+    return Calendar;
+  };
+>>>>>>> origin/master
