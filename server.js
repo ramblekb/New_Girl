@@ -4,6 +4,7 @@ var session  = require('express-session');
 var exphbs = require("express-handlebars");
 var passport = require('passport');
 var db = require("./models");
+var util = require("util");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
