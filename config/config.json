@@ -9,7 +9,7 @@
   "test": {
     "username": "root",
     "password": "7283",
-    "database": "class_db",
+    "database": "recordCollection_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false  
