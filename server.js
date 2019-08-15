@@ -1,6 +1,9 @@
 require("dotenv").config();
-var express = require("express");
-var session = require("express-session");
+
+var util = require('util');
+var mysql = require('mysql');
+var express = require('express');
+var session = require('express-session');
 var exphbs = require("express-handlebars");
 var passport = require("passport");
 var db = require("./models");

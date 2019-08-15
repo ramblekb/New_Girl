@@ -75,17 +75,6 @@ module.exports = function (app, passport) {
       res.redirect('/search');
     });
 
-    app.get('/search', isLoggedIn, function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/html/search.html"))
-    });
-  
-    // =====================================
-    // LOGOUT ==============================
-    // =====================================
-    app.get('/logout', function(req, res) {
-      req.logout();
-      res.redirect('/');
-    });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function (req, res) {
@@ -107,4 +96,3 @@ function isLoggedIn(req, res, next) {
   // if they aren't redirect them to the home page
   res.redirect('/');
 }
-
