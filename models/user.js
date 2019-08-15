@@ -10,8 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       allownull: false
     }
   });
-
-  User.associate = function(models) {
+    User.associate = function(models) {
     User.hasMany(models.Record, {
       onDelete: "cascade"
     });
