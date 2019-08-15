@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+<!-- CSS full calendar links -->
+    <link href='https://unpkg.com/@fullcalendar/core/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/daygrid/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/list/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/timegrid/main.min.css' rel='stylesheet' />
+
+
+
+    <!-- JS full calendar links -->
+    <script type='text/javascript' src='https://unpkg.com/@fullcalendar/core/main.min.js'></script>
+    <script type='text/javascript' src='https://unpkg.com/@fullcalendar/daygrid/main.min.js'></script>
+
+   <script src='https://unpkg.com/@fullcalendar/list/main.min.js'></script>
+   <script src='https://unpkg.com/@fullcalendar/timegrid/main.min.js'></script>
+    
+    <script>
+
+ document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid' ],
+        //   defaultView: 'dayGridMonth'
+    
+        });
+
+        calendar.render();
+      });
+      var calendar = new Calendar(calendarEl, {
+  dateClick: function() {
+    alert('a day has been clicked!');
+  }
+});
+
+calendar.on('dateClick', function(info) {
+  console.log('clicked on ' + info.dateStr);
+});
+calendar.next();
+
+    </script>
+  </head>
+  <body>
+
+    <div id='calendar'></div>
+
+  </body>
+</html>

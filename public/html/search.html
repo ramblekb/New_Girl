@@ -1,0 +1,72 @@
+<!doctype html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Basic initialization</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css">
+    <link href="../styles/search.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar fixed-top my-navbar">
+        <div class="brand_logo_container">
+            <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
+        </div>
+        <a class="navbar-brand" href="#"></a>
+        <form class="form-inline">
+            <div id="cover">
+                <form method="get" action="">
+                    <div class="tb">
+                        <div class="td"><input type="text" class="searchBar" placeholder="Search" required></div>
+                        <div class="td" id="s-cover">
+                            <button type="submit">
+                                <div id="s-circle"></div>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a href="/logout" class="btn btn-outline-light teal-background white" role="button">Logout</a>
+        </form>
+    </nav>
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Artist</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Insert Artist Name Here" aria-label="Artist"
+                    aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3" class="inputName">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Album</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Insert Album Name Here" aria-label="Album"
+                    aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3" class="inputName">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Willing to Trade?</span>
+                </div>
+                <label class="radio-inline"><input type="radio" name="optradio" checked><br>Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio"><br>No</label>
+            </div>
+
+            <div class="input-group mb-3" class="inputName">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Search All?</span>
+                    <a href="" class="btn btn-outline-light teal-background white" role="button">Yes, Everything</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
