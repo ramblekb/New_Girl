@@ -16,15 +16,15 @@ module.exports = function (app, passport) {
   });
 
   // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
-      successRedirect: '/', // redirect to the secure profile section
-      failureRedirect: '/signup', // redirect back to the signup page if there is an error
-      failureFlash: true // allow flash messages
-    }));
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/', // redirect to the secure profile section
+    failureRedirect: '/signup', // redirect back to the signup page if there is an error
+    failureFlash: true // allow flash messages
+  }));
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/calendar', // redirect to the secure profile section
+    successRedirect: '/search', // redirect to the secure profile section
     failureRedirect: '/', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
   }),
@@ -36,20 +36,34 @@ module.exports = function (app, passport) {
       } else {
         req.session.cookie.expires = false;
       }
-      res.redirect('/calendar');
+      res.redirect('/search');
     });
 
-    app.get('/calendar', isLoggedIn, function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/html/calendar.html"))
-    });
-  
-    // =====================================
-    // LOGOUT ==============================
-    // =====================================
-    app.get('/logout', function(req, res) {
-      req.logout();
-      res.redirect('/');
-    });
+  app.get('/search', isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/search.html"));
+  });
+
+  app.get('/collection', isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/collection.html"));
+  });
+  app.get('/messages', isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/mesages.html"));
+
+  });
+  app.get('/table' , isLoggedIn , function(req,res){
+    res.sendFile(path.join(__dirname, "..public/html/table.html"));
+  })
+
+
+
+
+  // =====================================
+  // LOGOUT ==============================
+  // =====================================
+  app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function (req, res) {
@@ -66,10 +80,16 @@ module.exports = function (app, passport) {
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
 
-	// if user is authenticated in the session, carry on
-	if (req.isAuthenticated())
-		return next();
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+    return next();
 
+<<<<<<< HEAD
+  // if they aren't redirect them to the home page
+  res.redirect('/');
+}
+=======
 	// if they aren't redirect them to the home page
 	res.redirect('/');
 }
+>>>>>>> 8430ae4f27955d7a44f9872086b3384199fc3636

@@ -2,7 +2,7 @@ require("dotenv").config();
 var util = require('util');
 var mysql = require('mysql');
 var express = require('express');
-var session  = require('express-session');
+var session = require('express-session');
 var exphbs = require("express-handlebars");
 var passport = require('passport');
 var db = require("./models/");
@@ -20,12 +20,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(session({
-	secret: 'some-secret',
-	resave: true,
-	saveUninitialized: true
- } )); // session secret
+  secret: 'some-secret',
+  resave: true,
+  saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
-app.use(passport.session()); 
+app.use(passport.session());
 app.use(flash());
 
 
@@ -51,8 +51,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
