@@ -8,8 +8,8 @@
   },
   "test": {
     "username": "root",
-    "password": "Kbs120285",
-    "database": "class_db",
+    "password": "tigersblood5",
+    "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false  

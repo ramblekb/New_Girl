@@ -1,19 +1,18 @@
 require("dotenv").config();
+
 var util = require('util');
 var mysql = require('mysql');
 var express = require('express');
 var session = require('express-session');
 var exphbs = require("express-handlebars");
-var passport = require('passport');
-var db = require("./models/");
-
-
+var passport = require("passport");
+var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-var flash = require('connect-flash');
+var flash = require("connect-flash");
 
-require('./config/passport')(passport);
+require("./config/passport")(passport);
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

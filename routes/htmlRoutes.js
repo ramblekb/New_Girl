@@ -5,7 +5,7 @@ module.exports = function (app, passport) {
   // Load index page
   app.get("/", function (req, res) {
     db.Example.findAll({}).then(function (dbExamples) {
-      res.sendFile(path.join(__dirname, "../public/html/login.html"))
+      res.sendFile(path.join(__dirname, "../public/html/login.html"));
     });
   });
 
@@ -36,26 +36,12 @@ module.exports = function (app, passport) {
       } else {
         req.session.cookie.expires = false;
       }
-      res.redirect('/search');
+      res.redirect('/calendar');
     });
 
-  app.get('/search', isLoggedIn, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/search.html"));
+  app.get('/calendar', isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/search.html"))
   });
-
-  app.get('/collection', isLoggedIn, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/collection.html"));
-  });
-  app.get('/messages', isLoggedIn, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/mesages.html"));
-
-  });
-  app.get('/table' , isLoggedIn , function(req,res){
-    res.sendFile(path.join(__dirname, "..public/html/table.html"));
-  })
-
-
-
 
   // =====================================
   // LOGOUT ==============================
@@ -65,6 +51,31 @@ module.exports = function (app, passport) {
     res.redirect('/');
   });
 
+  // process the signup form
+    app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect: '/', // redirect to the secure profile section
+      failureRedirect: '/signup', // redirect back to the signup page if there is an error
+      failureFlash: true // allow flash messages
+    }));
+
+  // process the login form
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/search', // redirect to the secure profile section
+    failureRedirect: '/', // redirect back to the signup page if there is an error
+    failureFlash: true // allow flash messages
+  }),
+    function (req, res) {
+      console.log("hello");
+
+      if (req.body.remember) {
+        req.session.cookie.maxAge = 1000 * 60 * 3;
+      } else {
+        req.session.cookie.expires = false;
+      }
+      res.redirect('/search');
+    });
+
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function (req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
@@ -73,8 +84,6 @@ module.exports = function (app, passport) {
       });
     });
   });
-
-
 };
 
 // route middleware to make sure
@@ -84,12 +93,6 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
 
-<<<<<<< HEAD
   // if they aren't redirect them to the home page
   res.redirect('/');
 }
-=======
-	// if they aren't redirect them to the home page
-	res.redirect('/');
-}
->>>>>>> 8430ae4f27955d7a44f9872086b3384199fc3636

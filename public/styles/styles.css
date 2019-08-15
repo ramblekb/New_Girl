@@ -10,6 +10,21 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+a {
+    color: white;
+}
+a:hover {
+    color: #28bb34;
+}
+.signIn {
+    color: white;
+    margin-bottom: 25px;
+}
+.signUp {
+    color:white;
+    margin-top: 7px;
+    margin-bottom: 15px;
+}
 .user_card {
     height: 445px;
     width: 350px;
@@ -44,7 +59,7 @@ html {
     border: 2px solid white;
 }
 .form_container {
-    margin-top: 100px;
+    margin-top: 76px;
 }
 .login_btn {
     width: 100%;
@@ -72,3 +87,5 @@ html {
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #28bb34 !important;
 }
+
+
