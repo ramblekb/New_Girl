@@ -65,15 +65,17 @@ module.exports = function(passport) {
                             password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
                         };
 
-                        var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
-                        connection.query(insertQuery, [newUserMysql.username, newUserMysql.password], function (err, rows) {
-                            newUserMysql.id = rows.insertId;
+                    console.log("new user created");
+                    var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
+                    connection.query(insertQuery,[newUserMysql.username, newUserMysql.password],function(err, rows) {
+                        newUserMysql.id = rows.insertId;
 
-                            return done(null, newUserMysql);
-                        });
-                    }
-                });
-            })
+                        console.log("new user added to table");
+                        return done(null, newUserMysql);
+                    });
+                }
+            });
+        })
     );
 
     // =========================================================================
