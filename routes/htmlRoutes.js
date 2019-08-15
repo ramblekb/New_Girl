@@ -84,6 +84,12 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
 
+<<<<<<< HEAD
   // if they aren't redirect them to the home page
   res.redirect('/');
 }
+=======
+	// if they aren't redirect them to the home page
+	res.redirect('/');
+}
+>>>>>>> 8430ae4f27955d7a44f9872086b3384199fc3636
