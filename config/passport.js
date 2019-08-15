@@ -1,21 +1,22 @@
 // config/passport.js
 
 // load all the things we need
-var LocalStrategy = require("passport-local").Strategy;
+var LocalStrategy   = require('passport-local').Strategy;
 
 // load up the user model
-var mysql = require("mysql");
-var bcrypt = require("bcrypt-nodejs");
+var mysql = require('mysql');
+var bcrypt = require('bcrypt-nodejs');
 var env = "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var connection = mysql.createConnection({
-    host: config.host,
-    user: config.username,
-    password: config.password
+    'host': config.host,
+    'user': config.username,
+    'password': config.password
 });
-connection.query("USE " + config.database);
+connection.query('USE ' + config.database);
 // expose this function to our app using module.exports
 module.exports = function(passport) {
+
     // =========================================================================
     // passport session setup ==================================================
     // =========================================================================
@@ -23,13 +24,13 @@ module.exports = function(passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
-    passport.serializeUser(function (user, done) {
+    passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function (id, done) {
-        connection.query("SELECT * FROM users WHERE id = ? ", [id], function (err, rows) {
+    passport.deserializeUser(function(id, done) {
+        connection.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
             done(err, rows[0]);
         });
     });
