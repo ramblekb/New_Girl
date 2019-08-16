@@ -37,6 +37,14 @@
                 window.location.href = "/records";
             });
         });
+        $(() => {
+            $("#searchAllBtn").click((event) => {
+                event.preventDefault();
+                // var album = $("#searchAlbum").val();
+                localStorage.setItem("Search", ["all", "all"]);
+                window.location.href = "/records";
+            });
+        });
 
     </script>
 </head>
@@ -137,7 +145,7 @@
                         <form method="get" action="">
                             <div class="tb">
                                 <div class="td" id="s-cover">
-                                    <button type="submit">
+                                    <button id="searchAllBtn" type="submit">
                                         <div id="s-circle"></div>
                                         <span></span>
                                     </button>
