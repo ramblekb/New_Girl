@@ -22,11 +22,11 @@ a:hover {
 }
 .signUp {
     color:white;
-    margin-top: 7px;
+    margin-top: 20px;
     margin-bottom: 15px;
 }
 .user_card {
-    height: 445px;
+    height: 475px;
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
@@ -42,6 +42,12 @@ a:hover {
     border-radius: 5px;
 
 }
+
+/*Special CSS for login card*/
+.login_page{
+    height: 410px !important;
+}
+
 .brand_logo_container {
     position: absolute;
     height: 170px;
