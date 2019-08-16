@@ -2,14 +2,20 @@ var db = require("../models");
 var path = require("path");
 
 module.exports = function (app, passport) {
-  // Load index page
+  // Load main login page
   app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/html/login.html"))
 
   });
 
+  // Load Signup page
   app.get("/signup", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/html/signup.html")) 
+  });
+
+  // Load search page
+  app.get("/search", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/search.html"))
   });
 
   // process the signup form
