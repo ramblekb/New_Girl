@@ -32,6 +32,14 @@ module.exports = function (app) {
       });
   });
 
+  // Get all record information by Current User
+  app.get("/api/User/id", function (req, res) {
+    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Users u inner join Records r on u.id = r.UserId Where u.id=" + req.user.id, { type: db.Sequelize.QueryTypes.SELECT }).
+      then(function (data) {
+        res.json(data);
+      });
+  });
+
     // Get all record information by Current User
     app.get("/api/User/id", function (req, res) {
       db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Users u inner join Records r on u.id = r.UserId Where u.id=" + req.user.id, { type: db.Sequelize.QueryTypes.SELECT }).
@@ -56,14 +64,14 @@ module.exports = function (app) {
     });
   });
   
-  //Delete Album
-  app.delete("/api/records/delete/:id", function (req, res) {
-    db.Record.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbRecord) {
-      res.json(dbRecord);
+    //Delete Album
+    app.delete("/api/records/delete/:id", function (req, res) {
+      db.Record.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function (dbRecord) {
+        res.json(dbRecord);
+      });
     });
-  });
-};
+  };
