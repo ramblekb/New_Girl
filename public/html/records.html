@@ -10,7 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<<<<<< HEAD
     <link href="../styles/search.css" rel="stylesheet">
+=======
+    <link href="../styles/records.css" rel="stylesheet">
+>>>>>>> b42392ee66b61f8ed2d4ee1ff0d0ccf87bbc750b
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -22,6 +26,19 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+=======
+
+    <div class="wrapper">
+        <div id="mySidebar" class="sidebar" onclick="myFunction(this)">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <img src="../images/dolphin.jpeg" alt="Avatar" class="avatar">
+            <a href="home.html" class="fas fa-home" id="navicon">Home</a>
+            <a href="index.html" class="fas fa-crown" id="navicon">About</a>
+            <a href="portfolio.html" class="fas fa-laptop-code" id="navicon">Portfolio</a>
+            <a href="contact.html" class="far fa-envelope" id="navicon">Contact</a>
+        </div>
+>>>>>>> b42392ee66b61f8ed2d4ee1ff0d0ccf87bbc750b
 
     <nav class="navbar fixed-top my-navbar">
         <div class="brand_logo_container">
@@ -71,11 +88,34 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/events.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../js/events.js"></script>
 </body>
+<script>
+    console.log("loaded");
+
+    var searchStorage = localStorage.getItem('Search').split(",");
+    console.log(searchStorage);
+
+    var type = searchStorage[0];
+    var value = searchStorage[1];
+    var url = "/api/records/" + type + "/" + value
+    if (type = "all") {
+        url = "api/records"
+    };
+    $.get(url, function (err, data) {
+        console.log(data);
+    });
+
+
+              //* Once we get the value of what we will search call on the corresponding api call to the server
+              //dynamically render the page
+
+
+
+
+</script>
 
 </html>
