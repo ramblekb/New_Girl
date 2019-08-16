@@ -1,12 +1,14 @@
 <!doctype html>
+​
 
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Basic initialization</title>
     <link rel="stylesheet" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css">
     <link href="../styles/search.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    ​
     <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
@@ -17,8 +19,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
+    ​
+    <script>
+        $(() => {
+            $("#form1").click((event) => {
+                event.preventDefault();
+                var artist = $("#searchArtist").val();
+                localStorage.setItem("Search", ["artist", artist]);
+                window.location.href = "/records";
+            });
+        });
+        $(() => {
+            $("#albumSearchBtn").click((event) => {
+                event.preventDefault();
+                var album = $("#searchAlbum").val();
+                localStorage.setItem("Search", ["album", album]);
+                window.location.href = "/records";
+            });
+        });
+        $(() => {
+            $("#searchAllBtn").click((event) => {
+                event.preventDefault();
+                // var album = $("#searchAlbum").val();
+                localStorage.setItem("Search", ["all", "all"]);
+                window.location.href = "/records";
+            });
+        });
+
+    </script>
 </head>
+​
 
 <body>
     <nav class="navbar fixed-top my-navbar">
@@ -32,51 +62,57 @@
     </nav>
     <div class="d-flex justify-content-center h-100">
         <div class="user_card">
-
+            ​
             <div class="splash-img">
                 <img src="../images/banner.png" class="banner" alt="" />
             </div>
-
+            ​
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="col-10">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <!-- <span class="input-group-text" id="basic-addon1">Artist</span> -->
                             </div>
-                            <input type="text" class="form-control" placeholder="Insert Artist Name Here" aria-label="Artist"
+                            <input type="text" class="form-control" id="searchArtist"
+                                placeholder="Insert Artist Name Here" aria-label="Artist"
                                 aria-describedby="basic-addon1">
-                            </div>
+                        </div>
                     </div>
-                        
+
                     <div class="col-2">
-                            <div id="cover">
-                                <form method="get" action="">
-                                    <div class="tb">
-                                        <div class="td" id="s-cover">
-                                            <button type="submit">
-                                                <div id="s-circle"></div>
-                                                <span></span>
-                                            </button>
-                                        </div>
+                        ​
+                        <div id="cover">
+                            <!-- <a href="/records"> -->
+                            <form>
+                                <div class="tb">
+                                    <div class="td" id="s-cover">
+                                        <button id="form1">
+                                            <div id="s-circle"></div>
+                                            <span></span>
+                                        </button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
+                            <!-- </a>  -->
+                        </div>
+                        ​
                     </div>
                 </div>
             </div>
-
+            ​
             <div class="input-group mb-3" class="inputName">
                 <div class="input-group-prepend">
                     <!-- <span class="input-group-text" id="basic-addon1">Album</span> -->
                 </div>
-                <input type="text" class="form-control" placeholder="Insert Album Name Here" aria-label="Album" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Insert Album Name Here" id="searchAlbum"
+                    aria-label="Album" aria-describedby="basic-addon1">
                 <div id="cover">
                     <form method="get" action="">
                         <div class="tb">
                             <div class="td" id="s-cover">
-                                <button type="submit">
+                                <button id="albumSearchBtn" href="/records">
                                     <div id="s-circle"></div>
                                     <span></span>
                                 </button>
@@ -85,7 +121,7 @@
                     </form>
                 </div>
             </div>
-
+            ​
             <div class="input-group mb-3" class="inputName">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Willing to Trade?</span>
@@ -95,13 +131,13 @@
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-secondary">
                         <input type="radio" name="options" id="option2" autocomplete="off"> Radio
-                        </label>
-                        <label class="btn btn-secondary">
+                    </label>
+                    <label class="btn btn-secondary">
                         <input type="radio" name="options" id="option3" autocomplete="off"> Radio
                     </label>
                 </div>
             </div>
-
+            ​
             <div class="input-group mb-3" class="inputName">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Search All?</span>
@@ -109,7 +145,7 @@
                         <form method="get" action="">
                             <div class="tb">
                                 <div class="td" id="s-cover">
-                                    <button type="submit">
+                                    <button id="searchAllBtn" type="submit">
                                         <div id="s-circle"></div>
                                         <span></span>
                                     </button>
@@ -119,7 +155,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </body>
