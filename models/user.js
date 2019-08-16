@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     Email: {
       type: DataTypes.STRING,
-      isEmail: true,
+      isEmail: true
     }
   });
   User.associate = function(models) {

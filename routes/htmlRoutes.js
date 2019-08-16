@@ -12,10 +12,20 @@ module.exports = function (app, passport) {
   app.get("/signup", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/html/signup.html")) 
   });
-
+  
   // Load search page
-  app.get("/search", function (req, res) {
+  app.get("/search", isLoggedIn, function (req, res) {
     res.sendFile(path.join(__dirname, "../public/html/search.html"))
+  });
+  
+  // Load the User's Collection page
+  app.get("/collection", isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/collection.html"))
+  });
+
+  // Load the Records page
+  app.get("/records", isLoggedIn, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/records.html"))
   });
 
   // process the signup form
