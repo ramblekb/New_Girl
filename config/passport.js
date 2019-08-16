@@ -30,7 +30,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        connection.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
+        connection.query("SELECT * FROM Users WHERE id = ? ",[id], function(err, rows){
             done(err, rows[0]);
         });
     });
@@ -52,7 +52,7 @@ module.exports = function(passport) {
             function (req, username, password, done) {
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
-                connection.query("SELECT * FROM users WHERE username = ?", [username], function (err, rows) {
+                connection.query("SELECT * FROM Users WHERE username = ?", [username], function (err, rows) {
                     if (err)
                         return done(err);
                     if (rows.length) {
@@ -65,15 +65,17 @@ module.exports = function(passport) {
                             password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
                         };
 
-                        var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
-                        connection.query(insertQuery, [newUserMysql.username, newUserMysql.password], function (err, rows) {
-                            newUserMysql.id = rows.insertId;
+                    console.log("new user created");
+                    var insertQuery = "INSERT INTO Users ( username, password ) values (?,?)";
+                    connection.query(insertQuery,[newUserMysql.username, newUserMysql.password],function(err, rows) {
+                        newUserMysql.id = rows.insertId;
 
-                            return done(null, newUserMysql);
-                        });
-                    }
-                });
-            })
+                        console.log("new user added to table");
+                        return done(null, newUserMysql);
+                    });
+                }
+            });
+        })
     );
 
     // =========================================================================

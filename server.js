@@ -1,6 +1,9 @@
 require("dotenv").config();
-var express = require("express");
-var session = require("express-session");
+
+var util = require('util');
+var mysql = require('mysql');
+var express = require('express');
+var session = require('express-session');
 var exphbs = require("express-handlebars");
 var passport = require("passport");
 var db = require("./models");
@@ -23,16 +26,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);

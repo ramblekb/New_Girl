@@ -1,109 +1,63 @@
 var data = {
   // Get references to page elements
-  description: $("#description-id").val(),
+  artist: $("#artist-name").val(),
+  album: $("#album-name").val(),
   month: $("#month-id").val(),
-  date: $("#date-id").val(),
-  day: $("#day-id").val()
+  willToTrade: $("#wTT-id").val(),
+  userName: $("#userName-id").val()
 
 };
 // The API object contains methods for each kind of request we'll make
 var API = {
 
-  addEvent: function (data, personsType, id) {
 
-    if (personsType == "teacher") {
-      return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "api/teach/" + id,
-        data: JSON.stringify(data),
-        success: location.reload()
-      });
-    } else if (personsType == "student") {
+  //This will make a post call to the server which will take 3 params the data being sent to the the server , the usersType "teacher" or "student",
+  //and the id of the user
+  addRecord: function (data) {
+    $.post("/api/addRecord", data, function (err, res) {
+      if (err) throw err;
+      console.log("sending data to api....");
+    })
 
-      return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "api/student/" + id,
-        data: JSON.stringify(example),
-        success: location.reload()
-      });
-    }
   },
-  getInfo: function (personsType) {
-    if (personsType == "student") {
-      return $.ajax({
-        url: "api/student",
-        type: "GET",
-        success: location.reload()
+  getAllrecords: function () {
+    $.get("/api/records", function (err, res) {
+      if (err) throw err;
+      console.log("getting all records.......")
+    });
 
-      });
-    }
-    else if (personsType == "teacher") {
-      return $.ajax({
-        url: "api/teach",
-        type: "GET",
-        success: location.reload()
-
-      });
-    };
   },
-  deleteEvent: function (eventid, personsType) {
-    if (personsType == "student") {
-      return $.ajax({
-        url: "api/student/" + eventId,
-        type: "DELETE",
-        success: location.reload()
-
-      });
-    }
-    else if (personsType == "teacher") {
-      return $.ajax({
-        url: "api/teach/" + eventId,
-        type: "DELETE",
-        success: location.reload()
-
-      });
-    }
+  searchArtist: function (artist) {
+    $.get("api/arist/" + artist, function (err, res) {
+      if (err) throw err;
+      console.log("searching for " + artist + ".......")
+    });
   },
-  updateEvent: function (id, eventId, personsType) {
-    if (personsType == "student") {
-      return $.ajax({
-        url: "api/teach/" + id + "/" + eventId,
-        type: "PUT",
-        success: location.reload()
+  searchAlbum: function (album) {
+    $.get("api/album/" + album, function (err, res) {
+      if (err) throw err;
+      console.log("searching for " + album + "........")
+    });
+  },
 
-      });
-    }
-    else if (personsType == "teacher") {
-      return $.ajax({
-        url: "api/student/" + id + "/" + eventId,
-        type: "PUT",
-        success: location.reload()
-      });
-    }
-  }
-};
+}
+//This will get call to the server and takes one params the take the users type "teacher" or "student"
 
 
 
 
 // Add event listeners for buttons
-$(".deleteEventBtn").click(function (eventid, personsType) {
-  API.deleteEvent(eventId, id);
+$(".addRecordBtn").click(function () {
+  API.addRecord(data);
 });
-$(".updateEventBtn").click(function () {
-  API.updateEvent(id, eventId, personsType);
+$(".getAllRecordsBtn").click(function () {
+  API.getAllrecords();
 });
 
-$(".getEventsBtn").click(function () {
-  API.getInfo(personsType);
+$(".searchArtistBtn").click(function () {
+  API.searchAlbum(album);
 });
 $(".addEventBtn").click(function () {
-  API.addEvent(data, personsType, id)
+  API.searchArtist(artist);
 
 });

@@ -10,14 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     Year: DataTypes.STRING,
     WillingToTrade: DataTypes.BOOLEAN,
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-      model: User,
-      key: "id"
-      },
-      allownull: false
-    }
+    // usersId: {
+    //   type: DataTypes.INTEGER,
+    //   // references: {
+    //   // model: User,
+    //   // key: "id"
+    //   // },
+    //   allownull: false
+    // }
   });
   
   Record.associate = function(models) {
@@ -27,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-  return Records;
+  return Record;
 };
