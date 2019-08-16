@@ -2,7 +2,6 @@
 
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
-
 // load up the user model
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
@@ -94,6 +93,10 @@ module.exports = function(passport) {
         },
             function (req, username, password, done) { // callback with email and password from our form
                 connection.query("SELECT * FROM Users WHERE Username = ?", [username], function (err, rows) {
+
+//--------- Session storage not defined? -----------------                   
+                    // sessionStorage.setItem("user", [username]);
+
                     if (err)
                         return done(err);
                     if (!rows.length) {
