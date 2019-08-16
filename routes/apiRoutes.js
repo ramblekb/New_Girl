@@ -2,7 +2,7 @@ var db = require("../models");
 module.exports = function (app) {
   // Find all Records and return them to the user with res.json
   app.get("/api/records", function (req, res) {
-    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Record r inner join User u on u.id = r.UserId")
+    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Records r inner join Users u on u.id = r.UserId")
       .then(function (dbRecord) {
         res.json(dbRecord);
       });
@@ -10,7 +10,7 @@ module.exports = function (app) {
 
   // Find all Records by Artist and return them to the user with res.json
   app.get("/api/records/artist/:artist", function (req, res) {
-    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Record r inner join User u on u.id = r.UserId Where Artist=" + req.params.artist)
+    db.sequelize.query("SELECT Username, Artist, Album, Year, WillingToTrade FROM Records r inner join Users u on u.id = r.UserId WHERE r.Artist='" +req.params.artist +"'", { type: db.Sequelize.QueryTypes.SELECT })
       .then(function (dbRecord) {
         res.json(dbRecord);
       });
@@ -18,7 +18,7 @@ module.exports = function (app) {
 
   // Find all Records by Album and return them to the user with res.json
   app.get("/api/records/album/:album", function (req, res) {
-    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Record r inner join User u on u.id = r.UserId Where Album=" + req.params.album)
+    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Records r inner join Users u on u.id = r.UserId Where r.Album='" + req.params.album + "'", { type: db.Sequelize.QueryTypes.SELECT })
       .then(function (dbRecord) {
         res.json(dbRecord);
       });
@@ -34,7 +34,7 @@ module.exports = function (app) {
 
   // Get Albums that are willing to trade with userId
   app.get("/api/WillingToTrade", function (req, res) {
-    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Record r inner join User u on u.id = r.UserId Where WillingToTrade=1").
+    db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Records r inner join Users u on u.id = r.UserId Where WillingToTrade=1").
       then(function (data) {
         res.json(data);
       });

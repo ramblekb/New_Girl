@@ -19,5 +19,6 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
+  
   return User;
 };
