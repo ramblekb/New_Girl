@@ -1,7 +1,7 @@
 // config/passport.js
 
 // load all the things we need
-var LocalStrategy   = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
 var mysql = require('mysql');
@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 });
 connection.query('USE ' + config.database);
 // expose this function to our app using module.exports
-module.exports = function(passport) {
+module.exports = function (passport) {
 
     // =========================================================================
     // passport session setup ==================================================
@@ -24,13 +24,13 @@ module.exports = function(passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function (user, done) {
         done(null, user.id);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        connection.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
+    passport.deserializeUser(function (id, done) {
+        connection.query("SELECT * FROM Users WHERE id = ? ", [id], function (err, rows) {
             done(err, rows[0]);
         });
     });
@@ -44,15 +44,15 @@ module.exports = function(passport) {
     passport.use(
         'local-signup',
         new LocalStrategy({
-            // by default, local strategy uses username and password, we will override with email
-            usernameField: 'username',
-            passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        },
+                // by default, local strategy uses username and password, we will override with email
+                usernameField: 'username',
+                passwordField: 'password',
+                passReqToCallback: true // allows us to pass back the entire request to the callback
+            },
             function (req, username, password, done) {
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
-                connection.query("SELECT * FROM users WHERE username = ?", [username], function (err, rows) {
+                connection.query("SELECT * FROM Users WHERE username = ?", [username], function (err, rows) {
                     if (err)
                         return done(err);
                     if (rows.length) {
@@ -62,13 +62,15 @@ module.exports = function(passport) {
                         // create the user
                         var newUserMysql = {
                             username: username,
-                            password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
+                            password: bcrypt.hashSync(password, null, null) // use the generateHash function in our user model
                         };
 
-                        var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
+                        console.log("new user created");
+                        var insertQuery = "INSERT INTO Users ( username, password ) values (?,?)";
                         connection.query(insertQuery, [newUserMysql.username, newUserMysql.password], function (err, rows) {
                             newUserMysql.id = rows.insertId;
 
+                            console.log("new user added to table");
                             return done(null, newUserMysql);
                         });
                     }
@@ -85,13 +87,13 @@ module.exports = function(passport) {
     passport.use(
         'local-login',
         new LocalStrategy({
-            // by default, local strategy uses username and password, we will override with email
-            usernameField: 'username',
-            passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        },
+                // by default, local strategy uses username and password, we will override with email
+                usernameField: 'username',
+                passwordField: 'password',
+                passReqToCallback: true // allows us to pass back the entire request to the callback
+            },
             function (req, username, password, done) { // callback with email and password from our form
-                connection.query("SELECT * FROM users WHERE username = ?", [username], function (err, rows) {
+                connection.query("SELECT * FROM Users WHERE username = ?", [username], function (err, rows) {
                     if (err)
                         return done(err);
                     if (!rows.length) {

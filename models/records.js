@@ -1,3 +1,4 @@
+    
 module.exports = function(sequelize, DataTypes) {
   var Record = sequelize.define("Record", {
     Artist: {
@@ -10,12 +11,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     Year: DataTypes.STRING,
     WillingToTrade: DataTypes.BOOLEAN,
-    userId: {
+    usersId: {
       type: DataTypes.INTEGER,
-      references: {
-      model: User,
-      key: "id"
-      },
+      // references: {
+      // model: User,
+      // key: "id"
+      // },
       allownull: false
     }
   });
@@ -27,5 +28,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-  return Records;
+  return Record;
 };

@@ -1,3 +1,4 @@
+
 {
   "development": {
     "username": "e2hhi91qmfh2ksyq",
@@ -8,8 +9,8 @@
   },
   "test": {
     "username": "root",
-    "password": "tigersblood5",
-    "database": "testdb",
+    "password": "quoctuan",
+    "database": "recordCollection_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false  

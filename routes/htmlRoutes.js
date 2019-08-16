@@ -4,15 +4,10 @@ var path = require("path")
 module.exports = function (app, passport) {
   // Load index page
   app.get("/", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.sendFile(path.join(__dirname, "../public/html/login.html"));
-    });
+    res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
-
   app.get("/signup", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.sendFile(path.join(__dirname, "../public/html/signup.html"))
-    });
+    res.sendFile(path.join(__dirname, "../public/html/signup.html"))
   });
 
   // process the signup form
