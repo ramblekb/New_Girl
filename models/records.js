@@ -11,14 +11,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     Year: DataTypes.STRING,
     WillingToTrade: DataTypes.BOOLEAN,
-    usersId: {
-      type: DataTypes.INTEGER,
-      // references: {
-      // model: User,
-      // key: "id"
-      // },
-      allownull: false
-    }
+    // usersId: {
+    //   type: DataTypes.INTEGER,
+    //   // references: {
+    //   // model: User,
+    //   // key: "id"
+    //   // },
+    //   allownull: false
+    // }
   });
   
   Record.associate = function(models) {

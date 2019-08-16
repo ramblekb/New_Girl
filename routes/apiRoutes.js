@@ -8,7 +8,7 @@ module.exports = function (app) {
     });
   });
   // Find all Records by Artist and return them to the user with res.json
-  app.get("/api/records/:artist", function (req, res) {
+  app.get("/api/records/artist/:artist", function (req, res) {
     db.Record.findAll({
       where: {
         Artist: req.params.artist
@@ -18,7 +18,7 @@ module.exports = function (app) {
     });
   });
   // Find all Records by Album and return them to the user with res.json
-  app.get("/api/records/:album", function (req, res) {
+  app.get("/api/records/album/:album", function (req, res) {
     db.Record.findAll({
       where: {
         Album: req.params.album
@@ -28,13 +28,27 @@ module.exports = function (app) {
     });
   });
   // Find all Records All Users are willing to trade and return them to the user with res.json
-  app.get("/api/records/:willingToTrade", function (req, res) {
+  app.get("/api/records/willingToTrade/:willingToTrade", function (req, res) {
     db.Record.findAll({
       where: {
         WillingToTrade: req.params.willingToTrade
       }
     }).then(function (dbRecord) {
       res.json(dbRecord);
+    });
+  });
+  // Get User's Records
+  app.get("/api/User/id/:id", function (req, res) {
+    db.sequelize.query("select Username, Email, Artist, Album, Year, WillingToTrade from Users u inner join Records r on u.id = r.UserId Where u.id=" + req.params.id).
+    then(function(data){
+      res.json(data);
+    });
+  });
+  // Get Albums that are willing to trade with userId
+  app.get("/api/WillingToTrade", function (req, res) {
+    db.sequelize.query("select Username, Email, Artist, Album, Year, WillingToTrade from Record r inner join User u on u.id = r.UserId Where WillingToTrade=1").
+    then(function(data){
+      res.json(data);
     });
   });
   // Post Record to Record collection
@@ -45,7 +59,7 @@ module.exports = function (app) {
     });
   });
   //Delete Album
-  app.delete("/api/records/:id", function (req, res) {
+  app.delete("/api/records/delete/:id", function (req, res) {
     db.Record.destroy({
       where: {
         id: req.params.id

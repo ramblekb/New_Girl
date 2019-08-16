@@ -29,8 +29,8 @@ module.exports = function (passport) {
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function (id, done) {
-        connection.query("SELECT * FROM Users WHERE id = ? ", [id], function (err, rows) {
+    passport.deserializeUser(function(id, done) {
+        connection.query("SELECT * FROM Users WHERE id = ? ",[id], function(err, rows){
             done(err, rows[0]);
         });
     });
@@ -65,17 +65,17 @@ module.exports = function (passport) {
                             password: bcrypt.hashSync(password, null, null) // use the generateHash function in our user model
                         };
 
-                        console.log("new user created");
-                        var insertQuery = "INSERT INTO Users ( username, password ) values (?,?)";
-                        connection.query(insertQuery, [newUserMysql.username, newUserMysql.password], function (err, rows) {
-                            newUserMysql.id = rows.insertId;
+                    console.log("new user created");
+                    var insertQuery = "INSERT INTO Users ( username, password ) values (?,?)";
+                    connection.query(insertQuery,[newUserMysql.username, newUserMysql.password],function(err, rows) {
+                        newUserMysql.id = rows.insertId;
 
-                            console.log("new user added to table");
-                            return done(null, newUserMysql);
-                        });
-                    }
-                });
-            })
+                        console.log("new user added to table");
+                        return done(null, newUserMysql);
+                    });
+                }
+            });
+        })
     );
 
     // =========================================================================
@@ -101,7 +101,7 @@ module.exports = function (passport) {
                     }
 
                     // if the user is found but the password is wrong
-                    if (!bcrypt.compareSync(password, rows[0].password))
+                    if (!bcrypt.compareSync(password, rows[0].Password))
                         return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
                     // all is well, return successful user
