@@ -42,9 +42,6 @@ module.exports = function (app, passport) {
       res.redirect('/search');
     });
 
-  app.get('/calendar', isLoggedIn, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/calendar.html"))
-  });
 
   // =====================================
   // LOGOUT ==============================
