@@ -1,10 +1,12 @@
+import { EmptyResultError } from "sequelize/types";
+
 var data = {
   // Get references to page elements
   artist: $("#artist-name").val(),
   album: $("#album-name").val(),
-  month: $("#month-id").val(),
   willToTrade: $("#wTT-id").val(),
-  userName: $("#userName-id").val()
+  userName: $("#userName-id").val(),
+  deleteRecordId: $("#delete-id").val(),
 
 };
 // The API object contains methods for each kind of request we'll make
@@ -28,23 +30,37 @@ var API = {
 
   },
   searchArtist: function (artist) {
-    $.get("api/arist/" + artist, function (err, res) {
+    $.get("api/records/artist/" + artist, function (err, res) {
       if (err) throw err;
       console.log("searching for " + artist + ".......")
     });
   },
   searchAlbum: function (album) {
-    $.get("api/album/" + album, function (err, res) {
+    $.get("api/records/album/" + album, function (err, res) {
       if (err) throw err;
       console.log("searching for " + album + "........")
     });
   },
+  searchWillToTrade: function (willToTrade) {
+    $.get("api/records/willingToTrade/" + willToTrade, function (err, res) {
+      if (err) throw err;
+      console.log("searching for albums up for trade........")
+    });
+  },
+  searchUser: function (userName) {
+    $.get("api/User/id/" + unserName, function (err, res) {
+      if (err) throw err;
+      console.log("searching for user #" + id + "........")
+    });
+  },
+  deleteRow: function (deleteRow) {
+    $.delete("api/records/delete/" + deleteRow, function (err, res) {
+      if (err) throw err;
+      console.log("record #" + deleteRow + " deleted........")
+    });
+  }
 
 }
-//This will get call to the server and takes one params the take the users type "teacher" or "student"
-
-
-
 
 // Add event listeners for buttons
 $(".addRecordBtn").click(function () {
