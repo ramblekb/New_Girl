@@ -223,6 +223,11 @@ button span:before, button span:after
 
 }
 
+/*CSS for Records card*/
+.record_card {
+    height: 600px;
+}
+
 .radio-inline {
     padding-top: 5px;
     padding-left: 18px;
@@ -230,7 +235,8 @@ button span:before, button span:after
 }
 
 .logout-btn {
-  background-color: #28968d; 
+  background-color: #000202 !important; 
+  color: #28968d !important;
 }
 .logout-btn:hover{
     color: #28968d !important;
@@ -262,10 +268,25 @@ button span:before, button span:after
 }
 
 .link {
-    color: #00897b !important;
+    color: #004d40 !important;
 
 }
 
-.link:hover{
-    color: #00796b;
+.link:hover {
+    text
+}
+
+.contTwo {
+    margin-bottom: 15px; 
+}
+
+#serchRecord {
+    margin-top: 20px;
+    margin-left: -35px;
+    padding: 10px;
+    width: 890px !important;
+}
+
+.alert-link {
+    color: #004d40 !important;
 }
