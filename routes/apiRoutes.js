@@ -58,9 +58,9 @@ module.exports = function (app) {
       WillingToTrade: req.body.WillingToTrade,
       UserId: req.user.id
     })
-      .then(function (data) {
-        res.json(data);
-      });
+      // .then(function (data) {
+      //   res.json(data);
+      // });
   });
 
   //Delete Album
