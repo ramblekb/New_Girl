@@ -98,7 +98,6 @@ form
 
 input[type="text"]::placeholder
 {
-    /* color: #00695C; */
     color: #b2ebf2;
     font-weight: 300;
 }
@@ -220,7 +219,6 @@ button span:before, button span:after
     justify-content: center;
     flex-direction: column;
     padding: 50px;
-    /* padding-top: 20px; */
     box-shadow: 0 4px 8px 0 rgba(0, 3, 3, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -228,12 +226,10 @@ button span:before, button span:after
 
 }
 
-/*CSS for Records card*/
 .record_card {
     height: 600px;
 }
 
-/*CSS for Collections card*/
 .collection_card {
     height: 960px !important;
     width: 1050px !important;
@@ -245,14 +241,12 @@ button span:before, button span:after
     justify-content: center !important;
     flex-direction: column;
     padding: 50px;
-    /* padding-top: 20px; */
     box-shadow: 0 4px 8px 0 rgba(0, 3, 3, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 
-/*CSS for Search card*/
 .search_card {
     height: 600px !important;
     padding-top: 10px !important;
@@ -304,16 +298,13 @@ button span:before, button span:after
 }
 .banner {
     width: 100%;
-    /* height: 100%; */
 }
 
 .blockquote-footer {
     height: 20px;
     width: 300px;
     align-content: center;
-    /* padding-left: 25px; */
     padding-bottom: 15px;
-    /* padding-top: 15px */
 
 }
 
