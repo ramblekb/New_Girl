@@ -49,37 +49,15 @@
 
 
 
-        <div class="container" id="recy">
-            <div class="row">
-                <div style="width:100%" id="cardSet">
-                    <div class="card">
-
-                        <div class="card-header" id="headerCard">
-                            <h4>Kevin Morby</h4>
-                        </div>
-                        <div class="card-body" id="bodyCard">
-                            <blockquote class="blockquote mb-0">
-                                <p>OMG
-                                </p>
-                                <footer class="blockquote-footer">"Kansas City 'diehard' re-imagines his life's work in
-                                    gospel forte. Think Dylan's gospel stretch."<cite title="OMG">--NY TIMES</cite>
-                                    <!-- button to view record -->
-                                    <!-- <button  move="right" type="button" class="btn btn-dark" class="float-lg-right" id="checkDude">The Record</button></footer>
-                            </blockquote>
-                        </div> -->
-                                    <button type="button" style="float:right" class="btn btn-dark" id="checkDude">Check
-                                        The Record</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
 
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
         <script type="text/javascript" src="../js/events.js"></script>
 </body>
 <script>
+    $(document).ready(function(){
     console.log("loaded");
 
     var searchStorage = localStorage.getItem('Search').split(",");
@@ -88,8 +66,8 @@
     var type = searchStorage[0];
     var value = searchStorage[1];
     var url = "/api/records/" + type + "/" + value
-    if (type = "all") {
-        url = "api/records"
+    if (type == "all") {
+        url = "/api/records"
     };
     $.get(url, function (data) {
         for (x in data) {
@@ -124,25 +102,29 @@
             divFour.attr({
                 "class": "card-body"
             });
-            divFour.html("<ul> <li><h5>Artist: " + artist_name + "</h5></li><li><h5>Release Year: " + year + "</h5></li><li><h5>Username: " + username + "</ul>");
+            var available = data[x].WillingToTrade;
+            if (available == 1) {
+                available = "yes"
+                console.log("yes")
+            }
+            else if (available == 0) {
+                available = "no"
+            }
+            divFour.html("<ul> <li><h5>Artist: " + artist_name + "</h5></li><li><h5>Release Year: " + year + "</h5></li><li><h5>Owners Email: " + username + "</h5></li><li><h5>Willing to Trade? " + available + "</h5></li></ul>");
             divTwo.append(divFour)
             var button = $("<button>");
-            button.text("View This Users Catalog");
+            button.text("View  Users Catalog");
             divFour.append(button);
             button.attr({
-                "class": "btn",
+                "class": "viewCatalog btn",
                 "id": username[x]
             });
             button.css({
-                "background-color":"blue"
+                "background-color": "blue"
             })
-            
+
 
             $("#recy").append(divOne);
-
-
-
-
             // aTag.css({
             //     "float": "right"
             // });
@@ -151,10 +133,15 @@
             // });
             // aTag.text("View This Persons Catalog")
             // $div.append()
-
-
-
         };
+       
+        $(() => {
+            $(".viewCatalog").click((event) => {
+                event.preventDefault();
+                $()
+                console.log("clicked")
+            });
+        });
     });
 
 
@@ -162,8 +149,7 @@
               //dynamically render the page
 
 
-
-
+ });
 </script>
 
 </html>
