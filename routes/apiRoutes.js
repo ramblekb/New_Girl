@@ -41,7 +41,7 @@ module.exports = function (app) {
   });
 
   // Get Albums that are willing to trade with userId
-  app.get("/api/WillingToTrade", function (req, res) {
+  app.get("/api/records/WillingToTrade", function (req, res) {
     db.sequelize.query("select Username, Artist, Album, Year, WillingToTrade from Records r inner join Users u on u.id = r.UserId Where WillingToTrade=1", { type: db.Sequelize.QueryTypes.SELECT }).
       then(function (data) {
         res.json(data);

@@ -20,6 +20,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <script>
+    // TEST ME----------------------------------
+    // function clearStorage() {
+    //     localStorage.clear();
+    // }
+    // window.onload = clearStorage();
+    //----------------------------------------- 
     $(() => {
         $("#form1").click((event) => {
             event.preventDefault();
@@ -41,6 +47,14 @@
             event.preventDefault();
             // var album = $("#searchAlbum").val();
             localStorage.setItem("Search", ["all", "all"]);
+            window.location.href = "/records";
+        });
+    });
+    $(() => {
+        $("#searchWttBtn").click((event) => {
+            event.preventDefault();
+            // var album = $("#searchAlbum").val();
+            localStorage.setItem("Search", ["WillingToTrade", ""]);
             window.location.href = "/records";
         });
     });
@@ -71,10 +85,10 @@
                     <div class="col-10">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <!-- <span class="input-group-text" id="basic-addon1">Artist</span> -->
                             </div>
-                            <input type="text" class="form-control" placeholder="Insert Artist Name Here"
-                                class=" teal accent-4" aria-label="Artist" aria-describedby="basic-addon1">
+                            <input type="text" id="searchArtist" class="form-control"
+                                placeholder="Insert Artist Name Here" class=" teal accent-4" aria-label="Artist"
+                                aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -83,7 +97,7 @@
                             <form method="get" action="/records">
                                 <div class="tb">
                                     <div class="td" id="s-cover">
-                                        <button type="submit">
+                                        <button type="submit" id="form1">
                                             <div id="s-circle"></div>
                                             <span></span>
                                         </button>
@@ -102,12 +116,64 @@
                             <div class="input-group-prepend">
                                 <!-- <span class="input-group-text" id="basic-addon1">Album</span> -->
                             </div>
-                            <input type="text" class="form-control" placeholder="Insert Album Name Here"
-                                aria-label="Album" aria-describedby="basic-addon1">
+                            <input type="text" id="searchAlbum" class="form-control"
+                                placeholder="Insert Album Name Here" aria-label="Album" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
                     <div class="col-2">
+                        <div id="cover">
+                            <form method="get" action="/records">
+                                <div class="tb">
+                                    <div class="td" id="s-cover">
+                                        <button id="albumSearchBtn" type="submit">
+                                            <div id="s-circle"></div>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New WTT BUTTON! -->
+                <div class="input-group mb-3" class="inputName">
+                    <div class="input-group-prepend">
+                        <h6 class="searchAll">Will Trade</h6>
+                        <div id="cover">
+                            <form method="get" action="/records">
+                                <div class="tb">
+                                    <div class="td" id="s-cover">
+                                        <button id="searchWttBtn" type="submit">
+                                            <div id="s-circle"></div>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="input-group mb-3" class="inputName">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Willing to Trade?</span>
+                    </div>
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary pulse">
+                            <input type="radio" name="options" value="1" id="wTT1" autocomplete="off"> Yes
+                        </label>
+                        <label class="btn btn-secondary pulse">
+                            <input type="radio" name="options" value="0" id="wTT0" autocomplete="off"> No
+                        </label>
+                    </div>
+                </div> -->
+
+                <div class="input-group mb-3" class="inputName">
+                    <div class="input-group-prepend">
+                        <h6 class="searchAll">Search All?</h6>
                         <div id="cover">
                             <form method="get" action="/records">
                                 <div class="tb">
@@ -122,42 +188,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="input-group mb-3" class="inputName">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Willing to Trade?</span>
-                    </div>
-                    <!-- <label class="radio-inline"><input type="radio" name="optradio" checked><br>Yes</label>
-                <label class="radio-inline"><input type="radio" name="optradio"><br>No</label> -->
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary pulse">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Yes
-                        </label>
-                        <label class="btn btn-secondary pulse">
-                            <input type="radio" name="options" id="option3" autocomplete="off"> No
-                        </label>
-                    </div>
-                </div>
-
-                <div class="input-group mb-3" class="inputName">
-                    <div class="input-group-prepend">
-                        <h6 class="searchAll">Search All?</h6>
-                        <div id="cover">
-                            <form method="get" action="/records">
-                                <div class="tb">
-                                    <div class="td" id="s-cover">
-                                        <button type="submit">
-                                            <div id="s-circle"></div>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
