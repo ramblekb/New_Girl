@@ -1,5 +1,8 @@
 var db = require("../models");
 var path = require("path");
+var express = require("express");
+
+
 
 module.exports = function (app, passport) {
   // Load main login page
@@ -25,6 +28,7 @@ module.exports = function (app, passport) {
 
   // Load the Records page
   app.get("/records", isLoggedIn, function (req, res) {
+    res.header("content-type: text/html ");
     res.sendFile(path.join(__dirname, "../public/html/records.html"))
   });
 

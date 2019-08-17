@@ -33,51 +33,48 @@
             <li><a href="/logout" class="btn logout-btn" role="button">Logout</a></li>
         </ul>
     </nav>
-    
+
     <div class="d-flex justify-content-center h-100">
         <div class="user_card record_card">
             <div class="card-header"></div>
             <h2 class="teal lighten-5" id="headerCard">Record Search Results:</h2>
             <!-- record number 1 -->
-            <div class=" container" id="recy">
-                <div class="card teal lighten-4" id="serchRecord" role="alert">
-                    Weyes Blood 'Titanic Rising' Limited Edition.<a style="float:right" href="#"
-                        class="alert-link"><br>search for user</a>
-                </div>
-            </div>
-            <!-- record number 2 -->
-            <div class="container contTwo" id="recy">
-                <div class="card teal lighten-3" id="serchRecord" role="alert">
-                    Kevin Morby 'OMG' Limited Edition.<a style="float:right" href="#" class="alert-link"> <br>search for
-                        user</a>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class=" container" id="recy">
 
+    </div>
+
+
+        <div class="container" >
             <div class="row">
                 <div style="width:100%" id="cardSet">
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <div class="card teal lighten-2">
-                                <div class="card-content white-text">
-                                    <span class="card-title">Kevin Morby</span>
-                                    <h6>OMG!</h6>
-                                    <p>"Kansas City 'diehard' re-imagines his life's work in
-                                        gospel forte. Think Dylan's gospel stretch." --NY TIMES</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="link" href="#">Check The Record</a>
-                                </div>
-                            </div>
+                    <div class="card">
+
+                        <div class="card-header" id="headerCard">
+                            <h4>Kevin Morby</h4>
+                        </div>
+                        <div class="card-body" id="bodyCard">
+                            <blockquote class="blockquote mb-0">
+                                <p>OMG
+                                </p>
+                                <footer class="blockquote-footer">"Kansas City 'diehard' re-imagines his life's work in
+                                    gospel forte. Think Dylan's gospel stretch."<cite title="OMG">--NY TIMES</cite>
+                                    <!-- button to view record -->
+                                    <!-- <button  move="right" type="button" class="btn btn-dark" class="float-lg-right" id="checkDude">The Record</button></footer>
+                            </blockquote>
+                        </div> -->
+                                    <button type="button" style="float:right" class="btn btn-dark" id="checkDude">Check
+                                        The Record</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/events.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../js/events.js"></script>
 </body>
 <script>
     console.log("loaded");
@@ -158,9 +155,8 @@
     });
 
 
-              //* Once we get the value of what we will search call on the corresponding api call to the server
-              //dynamically render the page
-
+        //* Once we get the value of what we will search call on the corresponding api call to the server
+        //dynamically render the page
 
 
 
