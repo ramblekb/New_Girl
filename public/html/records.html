@@ -91,11 +91,6 @@
     if (type = "all") {
         url = "api/records"
     };
-<<<<<<< HEAD
-    console.log(url);
-    $.get(url, function (data) {
-        console.log(data);
-=======
     $.get(url, function (data) {
         for (x in data) {
             var album_name = data[x].Album;
@@ -139,9 +134,9 @@
                 "id": username[x]
             });
             button.css({
-                "background-color":"blue"
+                "background-color": "blue"
             })
-            
+
 
             $("#recy").append(divOne);
 
@@ -160,7 +155,6 @@
 
 
         };
->>>>>>> c15db55b83a2f32def0b0b1d3a70f73b447836a8
     });
 
 
