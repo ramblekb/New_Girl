@@ -29,62 +29,138 @@
             <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
         </div>
         <a class="navbar-brand" href="#"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <form class="form-inline">
+            <div id="cover">
+                <form method="get" action="">
+                    <div class="tb">
+                        <div class="td"><input type="text" class="searchBar" placeholder="Search" required></div>
+                        <div class="td" id="s-cover">
+                        </div>
+                    </div>
+                </form>
+            </div>
             <li><a href="/search" class="btn logout-btn" role="button" id="navBut">Search</a></li>
-            <li><a href="/search" class="btn logout-btn" role="button" id="navBut">Your Collection</a></li>
-            <li><a href="/logout" class="btn logout-btn" id="logOut" role="button">Logout</a></li>
-        </ul>
+            <a href="/logout" class="btn btn-outline-light teal-background white" role="button">Logout</a>
+        </form>
     </nav>
 
-    <div class="d-flex justify-content-center h-100">
-        <div class="user_card collection_card">
-            <div class="record-row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h4 class="cool-Font">User Name:</h4>
-                    <input class="form-control" type="text" id="author" placeholder="Record Collectors Name">
-                    <br>
-                    <h4 class="cool-font">Records:</h4>
-                    <textarea class="form-control" rows="10" id="record-box" placeholder="List of Records"></textarea>
-                </div>
-            </div>
-            <div class="card albumCard" style="width: 60rem;">
-                <div class="card-header">
-                    Add Album
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Artist</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Artist Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput2">Album</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Album Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput3">Year</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="YYYY">
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Willing To Trade
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                            value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Not Willing To Trade
-                        </label>
-                    </div>
-                </div>
-            </div>
+    <div class="wrapper">
+        <div id="mySidebar" class="sidebar">
+            <img src="../images/dolphin.jpeg" alt="Avatar" class="avatar">
         </div>
     </div>
 
+    <div class="card-header">
+        <h5>Your Record Collection</h5>
+    </div>
+
+    <div class=" container" id="recy">
+
+    </div>
+
+
+    <div>
+        <div class="card" style="width: 60rem;">
+            <div class="card-header">
+                Add Album
+            </div>
+            <form action="/api/addRecord" method="POST" class="card-body" id="record-form">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Artist</label>
+                    <input type="text" class="form-control" id="artistName" name="Artist" placeholder="Artist Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput2">Album</label>
+                    <input type="text" class="form-control" id="albumName" name="Album" placeholder="Album Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput3">Year</label>
+                    <input type="text" class="form-control" id="albumYear" name="Year" placeholder="YYYY">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT1" value="1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Willing To Trade
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT0" value="0">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Not Willing To Trade
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info" id="addRecordBtn">Submit</button>
+            </form>
+        </div>
+    </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/events.js"></script>
 </body>
+
+<script>
+    var url = "/api/User/id"
+
+    $.get(url, function (data) {
+        for (x in data) {
+            var album_name = data[x].Album;
+            var artist_name = data[x].Artist;
+            var year = data[x].Year;
+            var username = data[x].Username
+            console.log(data[x])
+            var divOne = $("<div>");
+            var aTag = $("<a>")
+            divOne.attr({
+                "class": "cardSet"
+            });
+            divOne.css({
+                "width": "100%",
+                "margin": "10px"
+            });
+            var divTwo = $("<div>");
+
+            divOne.append(divTwo);
+            divTwo.attr({
+                "class": "card"
+            });
+            var divThree = $("<div>");
+            divTwo.prepend(divThree);
+            divThree.attr({
+                "class": "card-header"
+            });
+            divThree.a
+            divThree.html("<h4>" + album_name + "</h4>");
+            var divFour = $("<div>");
+            divFour.attr({
+                "class": "card-body"
+            });
+            divFour.html("<ul> <li><h5>Artist: " + artist_name + "</h5></li><li><h5>Release Year: " + year + "</h5></li></ul>");
+            divTwo.append(divFour)
+            var button = $("<button>");
+            button.text("Delete Record");
+            divFour.append(button);
+            button.attr({
+                "class": "btn",
+                "id": username[x]
+            });
+            button.css({
+                "background-color": "blue"
+            })
+
+
+            $("#recy").append(divOne);
+
+        };
+    });
+
+    $(document).ready(function () {
+        $("#addRecordBtn").click(function () {
+            var Artist = $("#artistName").val();
+            var Album = $("#albumName").val();
+            var Year = $("#albumYear").val();
+            var markup = "<h4>" + Album + "</h4>" + "<ul> <li><h5>Artist: " + Artist + "</h5></li><li><h5>Release Year: " + Year + "</h5></li></ul>";
+            $("#recy").append(markup);
+        });
+    });
+</script>
 
 </html>

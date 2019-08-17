@@ -29,6 +29,7 @@
         </div>
         <a class="navbar-brand" href="#"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/collection" class="btn logout-btn" role="button">My Collection</a></li>
             <li><a href="/search" class="btn logout-btn" role="button" id="navBut">Search</a></li>
             <li><a href="/logout" class="btn logout-btn" role="button">Logout</a></li>
         </ul>
@@ -45,36 +46,8 @@
 
     </div>
 
-
-        <div class="container" >
-            <div class="row">
-                <div style="width:100%" id="cardSet">
-                    <div class="card">
-
-                        <div class="card-header" id="headerCard">
-                            <h4>Kevin Morby</h4>
-                        </div>
-                        <div class="card-body" id="bodyCard">
-                            <blockquote class="blockquote mb-0">
-                                <p>OMG
-                                </p>
-                                <footer class="blockquote-footer">"Kansas City 'diehard' re-imagines his life's work in
-                                    gospel forte. Think Dylan's gospel stretch."<cite title="OMG">--NY TIMES</cite>
-                                    <!-- button to view record -->
-                                    <!-- <button  move="right" type="button" class="btn btn-dark" class="float-lg-right" id="checkDude">The Record</button></footer>
-                            </blockquote>
-                        </div> -->
-                                    <button type="button" style="float:right" class="btn btn-dark" id="checkDude">Check
-                                        The Record</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
 </body>
 <script>
     console.log("loaded");
@@ -85,8 +58,8 @@
     var type = searchStorage[0];
     var value = searchStorage[1];
     var url = "/api/records/" + type + "/" + value
-    if (type = "all") {
-        url = "api/records"
+    if (type === "all") {
+        url = "/api/records"
     };
     $.get(url, function (data) {
         for (x in data) {
@@ -131,34 +104,14 @@
                 "id": username[x]
             });
             button.css({
-                "background-color":"blue"
+                "background-color": "blue"
             })
-            
+
 
             $("#recy").append(divOne);
 
-
-
-
-            // aTag.css({
-            //     "float": "right"
-            // });
-            // aTag.attr({
-            //     "class": "alert-link"
-            // });
-            // aTag.text("View This Persons Catalog")
-            // $div.append()
-
-
-
         };
     });
-
-
-        //* Once we get the value of what we will search call on the corresponding api call to the server
-        //dynamically render the page
-
-
 
 </script>
 

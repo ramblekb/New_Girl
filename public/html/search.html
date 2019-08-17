@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css">
     <link href="../styles/search.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
@@ -19,32 +19,32 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-        <script>
-            $(() => {
-                $("#form1").click((event) => {
-                    event.preventDefault();
-                    var artist = $("#searchArtist").val();
-                    localStorage.setItem("Search", ["artist", artist]);
-                    window.location.href = "/records";
-                });
-            });
-            $(() => {
-                $("#albumSearchBtn").click((event) => {
-                    event.preventDefault();
-                    var album = $("#searchAlbum").val();
-                    localStorage.setItem("Search", ["album", album]);
-                    window.location.href = "/records";
-                });
-            });
-            $(() => {
-                $("#searchAllBtn").click((event) => {
-                    event.preventDefault();
-                    // var album = $("#searchAlbum").val();
-                    localStorage.setItem("Search", ["all", "all"]);
-                    window.location.href = "/records";
-                });
-            });
-        </script>
+<script>
+    $(() => {
+        $("#form1").click((event) => {
+            event.preventDefault();
+            var artist = $("#searchArtist").val();
+            localStorage.setItem("Search", ["artist", artist]);
+            window.location.href = "/records";
+        });
+    });
+    $(() => {
+        $("#albumSearchBtn").click((event) => {
+            event.preventDefault();
+            var album = $("#searchAlbum").val();
+            localStorage.setItem("Search", ["album", album]);
+            window.location.href = "/records";
+        });
+    });
+    $(() => {
+        $("#searchAllBtn").click((event) => {
+            event.preventDefault();
+            // var album = $("#searchAlbum").val();
+            localStorage.setItem("Search", ["all", "all"]);
+            window.location.href = "/records";
+        });
+    });
+</script>
 ​
 
 <body>
@@ -54,6 +54,7 @@
         </div>
         <a class="navbar-brand" href="#"></a>
         <form class="form-inline">
+            <li><a href="/collection" class="btn logout-btn" role="button">My Collection</a></li>
             <a href="/logout" class="btn logout-btn" role="button">Logout</a>
         </form>
     </nav>
@@ -159,4 +160,5 @@
 
             </div>
         </div>
+    </div>
 </body>
