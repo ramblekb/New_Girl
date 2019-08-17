@@ -32,21 +32,21 @@
         </form>
     </nav>
     <div class="d-flex justify-content-center h-100">
-        <div class="user_card">
+        <div class="user_card search_card">
             ​
             <div class="splash-img">
-                <img src="../images/banner.png" class="banner" alt="" />
+                <img src="../images/banner2.png" class="banner" alt="" />
             </div>
             ​
             <div class="container">
-                <div class="row">
+                <div class="row rowOne">
 
                     <div class="col-10">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <!-- <span class="input-group-text" id="basic-addon1">Artist</span> -->
                             </div>
-                            <input type="text" class="form-control" placeholder="Insert Artist Name Here"
+                            <input type="text" class="form-control" placeholder="Insert Artist Name Here" class=" teal accent-4"
                                 aria-label="Artist" aria-describedby="basic-addon1">
                         </div>
                     </div>
@@ -66,35 +66,35 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
 
-                <div class="col-10">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <!-- <span class="input-group-text" id="basic-addon1">Album</span> -->
-                        </div>
-                        <input type="text" class="form-control" placeholder="Insert Album Name Here" aria-label="Album"
-                            aria-describedby="basic-addon1">
-                    </div>
-                </div>
-                
-                <div class="col-2">
-                    <div id="cover">
-                        <form method="get" action="">
-                            <div class="tb">
-                                <div class="td" id="s-cover">
-                                    <button id="searchAllBtn" type="submit">
-                                        <div id="s-circle"></div>
-                                        <span></span>
-                                    </button>
-                                </div>
+                <div class="row">
+
+                    <div class="col-10">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <span class="input-group-text" id="basic-addon1">Album</span> -->
                             </div>
-                        </form>
+                            <input type="text" class="form-control" placeholder="Insert Album Name Here"
+                                aria-label="Album" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div id="cover">
+                            <form method="get" action="">
+                                <div class="tb">
+                                    <div class="td" id="s-cover">
+                                        <button id="searchAllBtn" type="submit">
+                                            <div id="s-circle"></div>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
 
 
                 <div class="input-group mb-3" class="inputName">
@@ -104,22 +104,21 @@
                     <!-- <label class="radio-inline"><input type="radio" name="optradio" checked><br>Yes</label>
                 <label class="radio-inline"><input type="radio" name="optradio"><br>No</label> -->
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+                        <label class="btn btn-secondary pulse">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Yes
                         </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+                        <label class="btn btn-secondary pulse">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> No
                         </label>
                     </div>
                 </div>
 
-                <div class="input-group mb-3" class="inputName">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Search All?</span>
-                        <div id="cover">
+                <div class="input-group mb-3" class="inputName"> 
+                    <div class="input-group-prepend"><h6 class="searchAll">Search All?</h6>
+                        <div id="cover"> 
                             <form method="get" action="">
                                 <div class="tb">
-                                    <div class="td" id="s-cover">
+                                    <div class="td" id="s-cover"> 
                                         <button type="submit">
                                             <div id="s-circle"></div>
                                             <span></span>
