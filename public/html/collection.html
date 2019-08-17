@@ -29,26 +29,11 @@
             <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
         </div>
         <a class="navbar-brand" href="#"></a>
-        <form class="form-inline">
-            <div id="cover">
-                <form method="get" action="">
-                    <div class="tb">
-                        <div class="td"><input type="text" class="searchBar" placeholder="Search" required></div>
-                        <div class="td" id="s-cover">
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/search" class="btn logout-btn" role="button" id="navBut">Search</a></li>
-            <a href="/logout" class="btn btn-outline-light teal-background white" role="button">Logout</a>
-        </form>
+            <li><a href="/logout" class="btn logout-btn" role="button">Logout</a></li>
+        </ul>
     </nav>
-
-    <div class="wrapper">
-        <div id="mySidebar" class="sidebar">
-            <img src="../images/dolphin.jpeg" alt="Avatar" class="avatar">
-        </div>
-    </div>
 
     <div class="card-header">
         <h5>Your Record Collection</h5>
@@ -58,39 +43,43 @@
 
     </div>
 
-
-    <div>
-        <div class="card" style="width: 60rem;">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card search_card">
+            <!-- <div class="card" style="width: 60rem;"> -->
             <div class="card-header">
                 Add Album
             </div>
-            <form action="/api/addRecord" method="POST" class="card-body" id="record-form">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Artist</label>
-                    <input type="text" class="form-control" id="artistName" name="Artist" placeholder="Artist Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput2">Album</label>
-                    <input type="text" class="form-control" id="albumName" name="Album" placeholder="Album Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput3">Year</label>
-                    <input type="text" class="form-control" id="albumYear" name="Year" placeholder="YYYY">
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT1" value="1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        Willing To Trade
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT0" value="0">
-                    <label class="form-check-label" for="exampleRadios2">
-                        Not Willing To Trade
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-info" id="addRecordBtn">Submit</button>
-            </form>
+            <div class="card-body">
+                <form action="/api/addRecord" method="POST" class="card-body" id="record-form">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Artist</label>
+                        <input type="text" class="form-control" id="artistName" name="Artist" placeholder="Artist Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput2">Album</label>
+                        <input type="text" class="form-control" id="albumName" name="Album" placeholder="Album Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput3">Year</label>
+                        <input type="text" class="form-control" id="albumYear" name="Year" placeholder="YYYY">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT1" value="1">
+                        <label class="form-check-label" for="wTT1">
+                            Willing To Trade
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT0" value="0">
+                        <label class="form-check-label" for="wTT0">
+                            Not Willing To Trade
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-info" id="addRecordBtn">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -143,7 +132,7 @@
                 "id": username[x]
             });
             button.css({
-                "background-color": "blue"
+                "background-color": "red"
             })
 
 

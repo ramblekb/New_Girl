@@ -18,7 +18,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <title>TRADE RECORDS HERE</title>
+    <title>Search Results</title>
 </head>
 
 <body>
@@ -39,13 +39,11 @@
         <div class="user_card record_card">
             <div class="card-header"></div>
             <h2 class="teal lighten-5" id="headerCard">Record Search Results:</h2>
-            <!-- record number 1 -->
+            
+            <div class="container" id="recy"></div>
+            
         </div>
     </div>
-    <div class=" container" id="recy">
-
-    </div>
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/events.js"></script>
 </body>
@@ -67,14 +65,15 @@
             var artist_name = data[x].Artist;
             var year = data[x].Year;
             var username = data[x].Username
-            console.log(data[x])
+            console.log(data[x]);
+
             var divOne = $("<div>");
             var aTag = $("<a>")
             divOne.attr({
-                "class": "cardSet"
+                "class": "cardSet card-piece"
             });
             divOne.css({
-                "width": "100%",
+                "width": "80%",
                 "margin": "10px"
             });
             var divTwo = $("<div>");
@@ -109,9 +108,9 @@
 
 
             $("#recy").append(divOne);
-
         };
     });
+    $("#record_card-box").css({ 'height': 5000 + "px" });
 
 </script>
 
