@@ -151,11 +151,15 @@
         };
     });
 
-    $("#addRecordBtn").click(function () {
-
-        location.reload();
+    $(document).ready(function () {
+        $("#addRecordBtn").click(function () {
+            var Artist = $("#artistName").val();
+            var Album = $("#albumName").val();
+            var Year = $("#albumYear").val();
+            var markup = "<h4>" + Album + "</h4>" + "<ul> <li><h5>Artist: " + Artist + "</h5></li><li><h5>Release Year: " + Year + "</h5></li></ul>";
+            $("#recy").append(markup);
+        });
     });
-
 </script>
 
 </html>
