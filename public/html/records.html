@@ -39,17 +39,13 @@
         </div>
 <!-- record number 1 -->
         <div class=" container" id="recy">
-            <div class="alert alert-light" id="serchRecord" role="alert">
-                Weyes Blood 'Titanic Rising' Limited Edition.<a style="float:right" href="/collection"
-                    class="alert-link">search for user</a>
-            </div>
+
         </div>
-        <!-- record number 2 -->
-        <div class="container" id="recy">
+        <!-- <div class="container" id="recy">
             <div class="alert alert-light" id="serchRecord" role="alert">
                 Kevin Morby 'OMG' Limited Edition.<a style="float:right" href="#" class="alert-link">search for user</a>
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -95,8 +91,70 @@
     if (type = "all") {
         url = "api/records"
     };
-    $.get(url, function (err, data) {
-        console.log(data);
+    $.get(url, function (data) {
+        for (x in data) {
+            var album_name = data[x].Album;
+            var artist_name = data[x].Artist;
+            var year = data[x].Year;
+            var username = data[x].Username
+            console.log(data[x])
+            var divOne = $("<div>");
+            var aTag = $("<a>")
+            divOne.attr({
+                "class": "cardSet"
+            });
+            divOne.css({
+                "width": "100%",
+                "margin": "10px"
+            });
+            var divTwo = $("<div>");
+
+            divOne.append(divTwo);
+            divTwo.attr({
+                "class": "card"
+            });
+            var divThree = $("<div>");
+            divTwo.prepend(divThree);
+            divThree.attr({
+                "class": "card-header"
+            });
+            divThree.a
+            divThree.html("<h4>" + album_name + "</h4>");
+            var divFour = $("<div>");
+            divFour.attr({
+                "class": "card-body"
+            });
+            divFour.html("<ul> <li><h5>Artist: " + artist_name + "</h5></li><li><h5>Release Year: " + year + "</h5></li><li><h5>Username: " + username + "</ul>");
+            divTwo.append(divFour)
+            var button = $("<button>");
+            button.text("View This Users Catalog");
+            divFour.append(button);
+            button.attr({
+                "class": "btn",
+                "id": username[x]
+            });
+            button.css({
+                "background-color":"blue"
+            })
+            
+
+            $("#recy").append(divOne);
+
+
+
+
+            // aTag.css({
+            //     "float": "right"
+            // });
+            // aTag.attr({
+            //     "class": "alert-link"
+            // });
+            // aTag.text("View This Persons Catalog")
+            // $div.append()
+
+
+
+        };
     });
 
 

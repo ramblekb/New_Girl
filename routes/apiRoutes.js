@@ -50,7 +50,13 @@ module.exports = function (app) {
   // Post Record to Record collection
   app.post("/api/addRecord", function (req, res) {
     console.log(req.body)
-    db.Record.create(req.body).then(function (dbRecord) {
+    db.Record.create({
+      Artist: req.body.Artist,
+      Album: req.body.Album,
+      Year: req.body.Year,
+      WillingToTrade: req.body.WillingToTrade,
+      UserId: req.user.id
+    }).then(function (dbRecord) {
       res.json(dbRecord);
     });
   });
