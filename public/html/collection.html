@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="../styles/collection.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    <link href="../styles/collection.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,28 +21,28 @@
 <body>
 
     <nav class="navbar fixed-top my-navbar">
-                <div class="brand_logo_container">
-                    <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
-                </div>
-                <a class="navbar-brand" href="#"></a>
-                <form class="form-inline">
-                    <div id="cover">
-                        <form method="get" action="">
-                            <div class="tb">
-                                <div class="td"><input type="text" class="searchBar" placeholder="Search" required></div>
-                                <div class="td" id="s-cover">
-                                    <button type="submit">
-                                        <div id="s-circle"></div>
-                                        <span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+        <div class="brand_logo_container">
+            <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
+        </div>
+        <a class="navbar-brand" href="#"></a>
+        <form class="form-inline">
+            <div id="cover">
+                <form method="get" action="">
+                    <div class="tb">
+                        <div class="td"><input type="text" class="searchBar" placeholder="Search" required></div>
+                        <div class="td" id="s-cover">
+                            <button type="submit">
+                                <div id="s-circle"></div>
+                                <span></span>
+                            </button>
+                        </div>
                     </div>
-                    <a href="/logout" class="btn btn-outline-light teal-background white" role="button">Logout</a>
                 </form>
-            </nav>
-  
+            </div>
+            <a href="/logout" class="btn btn-outline-light teal-background white" role="button">Logout</a>
+        </form>
+    </nav>
+
     <div class="wrapper">
         <div id="mySidebar" class="sidebar" onclick="myFunction(this)">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -56,35 +56,120 @@
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776;</button>
         </div>
-        
+
     </div>
 
     <div class="record-row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <p class="cool-font">User Name</p>
-              <input class="form-control" type="text" id="author" placeholder="Record Collectors Name">
-              <br>
-              <p class="cool-font">Records</p>
-              <textarea class="form-control" rows="10" id="record-box" placeholder="List of Records"></textarea>
-             
-            </div>
-          </div>
+        <div class="col-sm-8 col-sm-offset-2">
+            <p class="cool-font">User Name</p>
+            <input class="form-control" type="text" id="author" placeholder="Record Collectors Name">
+            <br>
+            <p class="cool-font">Records</p>
+            <textarea class="form-control" rows="10" id="record-box" placeholder="List of Records"></textarea>
 
-   
-          
-          <div class="card p-3 text-right" id="collectionFooter">
-          <footer class="blockquote-footer">
-                <!-- <small class="text-muted">
+        </div>
+    </div>
+
+    <div>
+        <div class="card" style="width: 60rem;">
+            <div class="card-header">
+                Add Album
+            </div>
+            <form action="/api/addRecord" method="POST" class="card-body" id="record-form">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Artist</label>
+                    <input type="text" class="form-control" id="artistName" name="Artist" placeholder="Artist Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput2">Album</label>
+                    <input type="text" class="form-control" id="albumName" name="Album" placeholder="Album Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput3">Year</label>
+                    <input type="text" class="form-control" id="albumYear" name="Year" placeholder="YYYY">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT1" value="1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Willing To Trade
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="WillingToTrade" id="wTT0" value="0">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Not Willing To Trade
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info" id="addRecordBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card p-3 text-right" id="collectionFooter">
+        <footer class="blockquote-footer">
+            <!-- <small class="text-muted">
                         BOTTLE NOSE RECORDS</small> -->
-                <small class="text-muted">
-                   <cite title="Source Title">"Some people never go crazy. What truly horrible lives they must lead." - Charles Bukowski</cite>
-                </small>
-                <!-- <small class="text-muted">
+            <small class="text-muted">
+                <cite title="Source Title">"Some people never go crazy. What truly horrible lives they must lead." -
+                    Charles
+                    Bukowski</cite>
+            </small>
+            <!-- <small class="text-muted">
                         BOTTLE NOSE RECORDS</small> -->
-              </footer>
-              </div>
+        </footer>
+    </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/events.js"></script>
 </body>
+
+<script>
+    $.get("api/User/id", function (data) {
+        console.log(data)
+    });
+
+
+    for (x in data) {
+        var album_name = data[x].Album;
+        var artist_name = data[x].Artist;
+        var year = data[x].Year;
+        console.log(data[x])
+        var divOne = $("<div>");
+        var aTag = $("<a>")
+        divOne.attr({
+            "class": "cardSet"
+        });
+        divOne.css({
+            "width": "100%",
+            "margin": "10px"
+        });
+        var divTwo = $("<div>");
+        divOne.append(divTwo);
+        divTwo.attr({
+            "class": "card"
+        });
+        var divThree = $("<div>");
+        divTwo.prepend(divThree);
+        divThree.attr({
+            "class": "card-header"
+        });
+        divThree.a
+        divThree.html("<h4>" + album_name + "</h4>");
+        var divFour = $("<div>");
+        divFour.attr({
+            "class": "card-body"
+        });
+        divFour.html("<ul> <li><h5>Artist: " + artist_name + "</h5></li><li><h5>Release Year: " + year + "</h5></li></ul>");
+        divTwo.append(divFour)
+        var button = $("<button>");
+        button.text("View This Users Catalog");
+        divFour.append(button);
+        button.attr({
+            "class": "btn",
+            "id": Delete
+        });
+        $("#recy").append(divOne);
+    }
+</script>
 
 </html>

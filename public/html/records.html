@@ -95,7 +95,8 @@
     if (type = "all") {
         url = "api/records"
     };
-    $.get(url, function (err, data) {
+    console.log(url);
+    $.get(url, function (data) {
         console.log(data);
     });
 
