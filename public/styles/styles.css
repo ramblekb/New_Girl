@@ -4,33 +4,33 @@ html {
     padding: 0;
     height: 100%;
     width: 100%;
-    background: url("../images/background.jpg") no-repeat center center fixed;
+    background: url("../images/background2.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 a {
-    color: white;
+    color: #00796B;
 }
 a:hover {
-    color: #28bb34;
+    color: #009688;
 }
 .signIn {
-    color: white;
+    color: #00796B;
     margin-bottom: 25px;
 }
 .signUp {
-    color:white;
-    margin-top: 7px;
-    margin-bottom: 15px;
+    color: #00796B;
+    margin-top: -18px;
+    margin-bottom: 17px;
 }
 .user_card {
-    height: 445px;
+    height: 410px;
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #007a0a;
+    background: #B2DFDB;
     position: relative;
     display: flex;
     justify-content: center;
@@ -42,13 +42,19 @@ a:hover {
     border-radius: 5px;
 
 }
+
+/*Special CSS for login card*/
+.login_page{
+    height: 410px !important;
+}
+
 .brand_logo_container {
     position: absolute;
     height: 170px;
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    background: rgb(46, 48, 46);
+    background: #010202;
     padding: 10px;
     text-align: center;
 }
@@ -63,7 +69,7 @@ a:hover {
 }
 .login_btn {
     width: 100%;
-    background: #28bb34 !important;
+    background: #00897b !important;
     color: white !important;
 }
 .login_btn:focus {
@@ -74,7 +80,7 @@ a:hover {
     padding: 0 2rem;
 }
 .input-group-text {
-    background: #28bb34 !important;
+    background: #00897b !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
@@ -85,7 +91,7 @@ a:hover {
     outline: 0px !important;
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #28bb34 !important;
+    background-color: #00897b !important;
 }
 
 

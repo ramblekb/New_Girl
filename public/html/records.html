@@ -1,13 +1,16 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="../styles/records.css" rel="stylesheet">
+    <link href="../styles/search.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -20,64 +23,61 @@
 
 <body>
 
-    <div class="wrapper">
-        <div id="mySidebar" class="sidebar" onclick="myFunction(this)">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <img src="../images/dolphin.jpeg" alt="Avatar" class="avatar">
-            <a href="home.html" class="fas fa-home" id="navicon">Home</a>
-            <a href="index.html" class="fas fa-crown" id="navicon">About</a>
-            <a href="portfolio.html" class="fas fa-laptop-code" id="navicon">Portfolio</a>
-            <a href="contact.html" class="far fa-envelope" id="navicon">Contact</a>
+    <nav class="navbar fixed-top my-navbar">
+        <div class="brand_logo_container">
+            <img src="../images/logo.jpeg" class="brand_logo" alt="Logo">
         </div>
-
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
-        </div>
-
-        <div class="card-header"">
-            <h5>List Of Records Up For Trade</h5>
-        </div>
-<!-- record number 1 -->
-        <div class=" container" id="recy">
-
-        </div>
-        <!-- <div class="container" id="recy">
-            <div class="alert alert-light" id="serchRecord" role="alert">
-                Kevin Morby 'OMG' Limited Edition.<a style="float:right" href="#" class="alert-link">search for user</a>
+        <a class="navbar-brand" href="#"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/search" class="btn logout-btn" role="button" id="navBut">Search</a></li>
+            <li><a href="/logout" class="btn logout-btn" role="button">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card record_card">
+            <div class="card-header"></div>
+            <h2 class="teal lighten-5" id="headerCard">Record Search Results:</h2>
+            <!-- record number 1 -->
+            <div class=" container" id="recy">
+                <div class="card teal lighten-4" id="serchRecord" role="alert">
+                    Weyes Blood 'Titanic Rising' Limited Edition.<a style="float:right" href="#"
+                        class="alert-link"><br>search for user</a>
+                </div>
             </div>
-        </div> -->
+            <!-- record number 2 -->
+            <div class="container contTwo" id="recy">
+                <div class="card teal lighten-3" id="serchRecord" role="alert">
+                    Kevin Morby 'OMG' Limited Edition.<a style="float:right" href="#" class="alert-link"> <br>search for
+                        user</a>
+                </div>
+            </div>
 
-
-
-        <div class="container" id="recy">
             <div class="row">
                 <div style="width:100%" id="cardSet">
-                    <div class="card">
-
-                        <div class="card-header" id="headerCard">
-                            <h4>Kevin Morby</h4>
-                        </div>
-                        <div class="card-body" id="bodyCard">
-                            <blockquote class="blockquote mb-0">
-                                <p>OMG
-                                </p>
-                                <footer class="blockquote-footer">"Kansas City 'diehard' re-imagines his life's work in
-                                    gospel forte. Think Dylan's gospel stretch."<cite title="OMG">--NY TIMES</cite>
-                                    <!-- button to view record -->
-                                    <!-- <button  move="right" type="button" class="btn btn-dark" class="float-lg-right" id="checkDude">The Record</button></footer>
-                            </blockquote>
-                        </div> -->
-                                    <button type="button" style="float:right" class="btn btn-dark" id="checkDude">Check
-                                        The Record</button>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="card teal lighten-2">
+                                <div class="card-content white-text">
+                                    <span class="card-title">Kevin Morby</span>
+                                    <h6>OMG!</h6>
+                                    <p>"Kansas City 'diehard' re-imagines his life's work in
+                                        gospel forte. Think Dylan's gospel stretch." --NY TIMES</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="link" href="#">Check The Record</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
 </body>
 <script>
     console.log("loaded");
