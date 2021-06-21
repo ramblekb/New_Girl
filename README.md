@@ -3,7 +3,7 @@
 
 **[Deployed Heroku link](https://new-girl.herokuapp.com)**
 
-A Full Stack calendar application perfect for quick and efficient event planning in the classroom. Users can create an account as either a student or an instructor. Both roles can make and manage their schedule for one month at a time, however a student user's events will be personal to their calendar alone. 
+A Full Stack record trading application.
 
 ## Technologies Used
 ---
