@@ -1,5 +1,18 @@
 # Bottle Nose Record Trading App
 ---
+Project 2 - Bottle Nose Records 
+
+Designed and built a full stack web application utilizing the MVC paradigm and our own server-side API. And used Travis CI(which is a .yml file) for listing and continuous integration.  
+
+Model
+The central component of the pattern. It is the application's dynamic data structure, independent of the user interface.
+
+View
+Any representation of information
+
+Controller
+Accepts input and converts it to commands for the model or view.
+
 
 **[Deployed Heroku link](https://new-girl.herokuapp.com)**
 
@@ -12,7 +25,6 @@ A Full Stack record trading application.
 - Sequelize routing and models
 - Express Server
 - Passport user authentication
-- Calendar
 
 ## Functionality
 ---
